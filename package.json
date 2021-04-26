@@ -1,7 +1,7 @@
 {
   "name": "vite2-demo",
   "version": "0.0.0",
-  "license": "",
+  "license": "MIT License",
   "scripts": {
     "dev:mock": "cross-env NODE_ENV=development vite",
     "dev": "vite",

@@ -22,7 +22,7 @@ const resolvePath = (src: string) => {
 };
 export default async ({ command, mode }:ConfigEnv):Promise<UserConfigExport>=> {
   return {
-    base: "https://zy94xhn.github.io/vite2-template/",
+    base: "./",
     resolve: {
       alias: aliases,
     },
