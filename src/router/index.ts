@@ -1,12 +1,21 @@
-import {useUserStore} from '@store/user';
 import type { App } from 'vue';
-import {createRouter, createWebHashHistory } from "vue-router";
-const user  = useUserStore()
-console.log(user);
+import {createRouter, createWebHistory,RouteRecordRaw } from "vue-router";
 
-const router = createRouter({
-  history:createWebHashHistory(),
-  routes:[]
+const index = () => import( /* webpackChunkName: "dashboard" */"../views/index")
+import type {AppRouteRecordRawT} from "./types"
+const routes:Array<AppRouteRecordRawT> = [
+  {
+    path:"/",
+    name:"index",
+    component:index,
+    meta:{
+      title:"首页"
+    }
+  }
+]
+export const router = createRouter({
+  history:createWebHistory(),
+  routes:(routes as unknown) as RouteRecordRaw[]
 })
 export default function setupRouter (app:App<Element>) {
   app.use(router)

@@ -1,40 +1,56 @@
-import { MockMethod } from 'vite-plugin-mock';
+import { MockMethod } from "vite-plugin-mock";
+import { Random } from "mockjs";
 export default [
   {
-    url: '/api/get',
-    method: 'get',
+    url: "/api/get",
+    method: "get",
     response: ({ query }) => {
       return {
         code: 403,
         data: {
-          name: 'vben',
+          name: "vben",
         },
       };
     },
   },
   {
-    url: '/api/post',
-    method: 'post',
+    url: "/api/use/info",
+    method: "get",
+    response: req => {
+      return {
+        code: 200,
+        data: {
+          username: "我不爱吃鱼鱼鱼鱼",
+          permissions: ["admin", "edit"],
+          email: Random.email(),
+          avater: Random.image("64x64", "red", "yuyuyu"),
+        },
+      };
+    },
+  },
+  {
+    url: "/api/post",
+    method: "post",
     timeout: 2000,
     response: {
       code: 0,
       data: {
-        name: 'vben',
+        name: "vben",
       },
     },
   },
   {
-    url: '/api/text',
-    method: 'post',
+    url: "/api/text",
+    method: "post",
     rawResponse: async (req, res) => {
-      let reqbody = '';
-      await new Promise((resolve) => {
-        req.on('data', (chunk) => {
+      let reqbody = "";
+      await new Promise(resolve => {
+        req.on("data", chunk => {
           reqbody += chunk;
         });
-        req.on('end', () => resolve(undefined));
+        req.on("end", () => resolve(undefined));
       });
-      res.setHeader('Content-Type', 'text/plain');
+      res.setHeader("Content-Type", "text/plain");
       res.statusCode = 200;
       res.end(`hello, ${reqbody}`);
     },

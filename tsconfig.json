@@ -10,7 +10,7 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
     "types": ["vite/client"],
-    "typeRoots": ["./node_modules/@types/", "./types"],
+    "typeRoots": ["./node_modules/@types/", "./types","./src/types"],
     "incremental": false,
     "noImplicitAny": false,
     "skipLibCheck": true,

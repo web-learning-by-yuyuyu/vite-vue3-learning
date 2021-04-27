@@ -1,30 +1,27 @@
-import { getToken, removeToken } from '@utils/access.token'
-import { defineStore } from 'pinia'
-import { userInfo } from './modules/types'
+import { getToken, removeToken } from "@utils/access.token";
+import { defineStore } from "pinia";
+import { userInfo } from "./modules/types";
 
 // useStore could be anything like useUser, useCart
-const state:userInfo={
-  userName:"",
-  sex:0,
-  age:12,
-  permission:[],
-  token:getToken(),
-}
+const state: userInfo = {
+  userName: "113123",
+  sex: 0,
+  age: 12,
+  permission: [],
+  token: getToken(),
+};
 export const useUserStore = defineStore({
   // unique id of the store across your application
-  id: 'user',
-  state () {
+  id: "user",
+  state() {
     return {
-     ...state
-    }
+      ...state,
+    };
   },
-  getters() {
-    
-  },
-  actions:{
+  getters() {},
+  actions: {
     logout() {
-      removeToken()
-    }
-    
-  }
-})
+      removeToken();
+    },
+  },
+});
