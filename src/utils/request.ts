@@ -2,7 +2,6 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import { baseConfig } from "@config/base.config";
 import { ElNotification } from "element-plus";
 import { getToken, removeToken } from "./access.token";
-
 /* responseData */
 export interface ResponseData {
   code: number;
