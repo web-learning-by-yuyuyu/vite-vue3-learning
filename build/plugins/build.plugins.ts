@@ -7,6 +7,7 @@ import vue from '@vitejs/plugin-vue'
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { htmlConf } from './html.config'
 import {compressConf} from '../compress/compress.conf';
+import tsx from "../tsx/tsx.config"
 export function setPlugins (command:string) {
   const plugins:any[] = []
   plugins.push(vue())
@@ -41,5 +42,5 @@ export function setPlugins (command:string) {
   plugins.push(mock)
   //ts路径
   plugins.push(tsconfigPaths())
-  return [...plugins,...htmlConf,compressConf]
+  return [...plugins,...htmlConf,compressConf,tsx]
 }

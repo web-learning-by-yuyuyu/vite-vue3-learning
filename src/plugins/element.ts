@@ -1,5 +1,5 @@
 import type {App} from "vue"
-import { ElButton, ElSelect,  ElInfiniteScroll,
+import { ElButton, ElSelect,  ElInfiniteScroll,ElInput,
   ElLoading,
   ElMessage,
   ElMessageBox,
@@ -7,7 +7,7 @@ import { ElButton, ElSelect,  ElInfiniteScroll,
 import 'element-plus/packages/theme-chalk/src/base.scss';
 // @ts-expect-error
 import { ELE_SIZE } from "@types/ele.types";
-const elComponents =[ElButton,ElSelect]
+const elComponents =[ElButton,ElSelect,ElInput]
 const plugins = [
   ElInfiniteScroll,
   ElLoading,
