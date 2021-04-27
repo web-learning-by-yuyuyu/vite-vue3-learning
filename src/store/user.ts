@@ -1,3 +1,4 @@
+import { getToken, removeToken } from '@utils/access.token'
 import { defineStore } from 'pinia'
 import { userInfo } from './modules/types'
 
@@ -6,7 +7,8 @@ const state:userInfo={
   userName:"",
   sex:0,
   age:12,
-  permission:[]
+  permission:[],
+  token:getToken(),
 }
 export const useUserStore = defineStore({
   // unique id of the store across your application
@@ -15,5 +17,14 @@ export const useUserStore = defineStore({
     return {
      ...state
     }
+  },
+  getters() {
+    
+  },
+  actions:{
+    logout() {
+      removeToken()
+    }
+    
   }
 })
