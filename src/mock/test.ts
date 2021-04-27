@@ -5,7 +5,7 @@ export default [
     method: 'get',
     response: ({ query }) => {
       return {
-        code: 0,
+        code: 403,
         data: {
           name: 'vben',
         },

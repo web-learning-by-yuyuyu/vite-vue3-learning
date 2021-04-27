@@ -3,7 +3,8 @@
  */
  import { localStoreApi } from './local'
  import { SessionstorageAPI } from './session'
- 
+ import { baseConfig } from "@config/base.config"
+
  interface UseStoreType {
    set: Function
    get: Function
@@ -12,14 +13,14 @@
    setExpire?: Function
  }
  
- export default (store?: string): UseStoreType => {
-   let UseStore
+ export default (): UseStoreType => {
+   let store = baseConfig.storeLocation,UseStore;
    switch (store) {
-     case 'localstorage':
+     case 'local':
        UseStore = localStoreApi
        break
  
-     case 'sessionstorage':
+     case 'session':
        UseStore = SessionstorageAPI
        break
  

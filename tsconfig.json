@@ -16,10 +16,10 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@aips/*": ["./src/aips/*"],
+      "@apis/*": ["./src/apis/*"],
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
-      "@cinfig/*": ["./src/cinfig/*"],
+      "@config/*": ["./src/config/*"],
       "@logs/*": ["./src/logs/*"],
       "@plugins/*": ["./src/plugins/*"],
       "@router/*": ["./src/router/*"],
@@ -27,10 +27,10 @@
       "@utils/*": ["./src/utils/*"],
       "@types/*": ["./src/types/*"],
       "@views/*": ["./src/views/*"],
-      "@mock/*": ["./src/mock/*"],
+      "@mock/*": ["./src/mock/*"]
     }
   },
-  "exclude": ["node_modules","dist"],
+  "exclude": ["node_modules", "dist"],
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
@@ -41,4 +41,5 @@
     "build/**/*.ts",
     "build/**/*.d.ts",
     "mock/**/*.ts"
-  ],}
+  ]
+}

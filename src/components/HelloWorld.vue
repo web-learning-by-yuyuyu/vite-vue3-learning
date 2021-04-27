@@ -6,6 +6,7 @@
 
 <script lang="ts">
 import { reactive, ref, defineComponent } from "vue";
+import {testApis} from "@apis/test"
 export default defineComponent({
   setup() {
     const options = reactive([]);
@@ -14,6 +15,11 @@ export default defineComponent({
     const obj = reactive({
       name: "张三",
     });
+    testApis().then( res =>{
+      console.log(res);
+    }).catch(err=>{
+      console.log(err);
+    })
     return {
       setip,
       obj,

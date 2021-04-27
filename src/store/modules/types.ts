@@ -2,7 +2,8 @@ interface UserInfo {
   userName:string;
   sex:Sex;
   age:number;
-  permission:string[]
+  permission:string[],
+  token:string,
 }
 
 

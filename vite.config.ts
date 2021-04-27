@@ -28,7 +28,7 @@ export default async ({ command, mode }:ConfigEnv):Promise<UserConfigExport>=> {
     },
     logLevel: "info", //log等级
     server: {
-      port: 40001, //端口
+      port: 8008, //端口
       strictPort: false, //端口严格模式，为true时，当端口被占用，不会继续尝试下一个能用的端口
       https: false, //https
       open: true, //自动打开窗口
