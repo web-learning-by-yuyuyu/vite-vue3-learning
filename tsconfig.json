@@ -41,5 +41,5 @@
     "build/**/*.ts",
     "build/**/*.d.ts",
     "mock/**/*.ts"
-, "src/App.jsx", "src/components/tsxtest.jsx", "src/App.ssx"  ]
+, "src/App.tsx", "src/components/tsxtest.jsx", "src/App.ssx"  ]
 }

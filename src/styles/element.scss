@@ -1,0 +1,19 @@
+.login-input {
+  .el-input__inner {
+  opacity: .6;
+  line-height: 43px;
+  height: 43px;
+  transition: .5s;
+  font-size: 16px;
+  font-family: monospace;
+  padding-left: 40px;
+  &:focus {
+    border: 1px solid;
+    border-color: #FECACA ;
+  }
+  }
+  .el-input__prefix{
+    font-size: 25px;
+    top: 4px;
+  }
+}

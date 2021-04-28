@@ -36,6 +36,7 @@ export default async ({ command, mode }:ConfigEnv):Promise<UserConfigExport>=> {
         overlay: true, //hot更新
       },
     },
+    css:{},
     build: {
       outDir: "dist", //打包文件名称
       assetsDir: "assets", //打包静态文件的存储地址

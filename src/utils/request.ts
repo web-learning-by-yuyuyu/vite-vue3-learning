@@ -71,7 +71,7 @@ const errorHander = (code: number, err, message?: string): void => {
 serve.interceptors.request.use((config: AxiosRequestConfig) => {
   if (!!getToken()) {
     config.headers[baseConfig.tokenName] = getToken();
-  }
+  }  
   return config;
 });
 /* 请求response拦截 */

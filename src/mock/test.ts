@@ -17,6 +17,7 @@ export default [
     url: "/api/use/info",
     method: "get",
     response: req => {
+      console.log(req);
       return {
         code: 200,
         data: {
