@@ -6,9 +6,3 @@ export function testApis() {
     url: "/api/get",
   });
 }
-export function getUserInfo() {
-  return serve({
-    method: "get",
-    url: "/api/use/info",
-  });
-}
