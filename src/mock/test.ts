@@ -14,7 +14,7 @@ export default [
     },
   },
   {
-    url: "/api/use/info",
+    url: "/api/user/info",
     method: "get",
     response: req => {
       console.log(req);
@@ -25,6 +25,18 @@ export default [
           permissions: ["admin", "edit"],
           email: Random.email(),
           avater: Random.image("64x64", "red", "yuyuyu"),
+        },
+      };
+    },
+  },
+  {
+    url: "/api/user/login",
+    method: "post",
+    response: req => {
+      return {
+        code: 200,
+        data: {
+          token: "21ASDADOYO2KBKJHSAD689BK21",
         },
       };
     },

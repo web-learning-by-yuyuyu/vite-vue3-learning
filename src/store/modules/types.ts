@@ -1,16 +1,15 @@
 interface UserInfo {
-  userName:string;
-  sex:Sex;
-  age:number;
-  permission:string[],
-  token:string,
+  username: string;
+  permissions: string[];
+  email: string;
+  avater: string;
+  token: string;
 }
-
 
 enum Sex {
   MAN,
   WOMAN,
-  UNKONW
+  UNKONW,
 }
 
-export type userInfo = UserInfo
+export type userInfo = UserInfo;

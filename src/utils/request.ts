@@ -71,7 +71,7 @@ const errorHander = (code: number, err, message?: string): void => {
 serve.interceptors.request.use((config: AxiosRequestConfig) => {
   if (!!getToken()) {
     config.headers[baseConfig.tokenName] = getToken();
-  }  
+  }
   return config;
 });
 /* 请求response拦截 */
@@ -83,18 +83,18 @@ serve.interceptors.response.use(
       ? baseConfig.successCode.includes(code)
       : code === baseConfig.successCode;
     if (isSuccess) {
-      return Promise.resolve(data)
+      return Promise.resolve(data as any);
     } else {
       errorHander(code, respones, message);
-      return Promise.reject(respones);
+      return Promise.reject(respones as any);
     }
   },
   err => {
-    if(err && err.response) {
-      const {status} = err.response
-      errorHander(status,err)
+    if (err && err.response) {
+      const { status } = err.response;
+      errorHander(status, err);
     }
-    return Promise.reject(err?.response)
+    return Promise.reject(err?.response as any);
   }
 );
-export default  serve
+export default serve;
