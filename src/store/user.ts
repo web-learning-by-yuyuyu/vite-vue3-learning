@@ -3,13 +3,16 @@ import { getToken, removeToken, setToken } from "@utils/access.token";
 import { defineStore } from "pinia";
 import { userInfo } from "./modules/types";
 import { userModel } from "@apis/user";
+import { addRoute } from "@config/router.permission";
+import asyncRouter from "@router/asyncRoute/async.router";
 // useStore could be anything like useUser, useCart
 const state: userInfo = {
-  username: "113123",
+  username: "",
   email: "",
   avater: "",
   permissions: [],
   token: getToken(),
+  info:{}
 };
 export const useUserStore = defineStore({
   // unique id of the store across your application
@@ -44,6 +47,7 @@ export const useUserStore = defineStore({
         userModel
           .getUserInfo()
           .then(res => {
+            addRoute(asyncRouter as any)
             //@ts-ignore
             let { username, email, avater, permissions } = res;
             this.$patch({

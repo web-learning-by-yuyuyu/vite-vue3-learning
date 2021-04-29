@@ -6,6 +6,7 @@ export interface BaseConfig {
   successCode: number[] | number;
   storeLocation: StoreLocal;
   duration: number;
+  tokenExpireTIme?:number//token过期时间
 }
 export enum ErrorResCode {
   LOGOUT = 401, //登录失效

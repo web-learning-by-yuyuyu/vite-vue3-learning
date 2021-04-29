@@ -4,12 +4,7 @@ interface UserInfo {
   email: string;
   avater: string;
   token: string;
-}
-
-enum Sex {
-  MAN,
-  WOMAN,
-  UNKONW,
+  info:unknown
 }
 
 export type userInfo = UserInfo;

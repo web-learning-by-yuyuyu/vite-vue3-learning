@@ -1,5 +1,24 @@
 import { MockMethod } from "vite-plugin-mock";
 import { Random } from "mockjs";
+const successCode = 200;
+const hasNotToken = 401;
+const hasNotPermission = 403;
+const successMsg = "操作成功"
+const reutnData = (token,data) =>{
+  if(token) {
+    return {
+      code:successCode,
+      message:successMsg,
+      data
+    }
+  } else {
+    return {
+      code:hasNotToken,
+      message:"未登录",
+      data:{}
+    }
+  }
+}
 export default [
   {
     url: "/api/get",
@@ -17,16 +36,13 @@ export default [
     url: "/api/user/info",
     method: "get",
     response: req => {
-      console.log(req);
-      return {
-        code: 200,
-        data: {
-          username: "我不爱吃鱼鱼鱼鱼",
-          permissions: ["admin", "edit"],
-          email: Random.email(),
-          avater: Random.image("64x64", "red", "yuyuyu"),
-        },
-      };
+      let {access_token} = req.headers;
+      return reutnData(access_token,{
+        username: "我不爱吃鱼鱼鱼鱼",
+        permissions: ["admin", "edit"],
+        email: Random.email(),
+        avater: Random.image("64x64", "red", "yuyuyu"),
+      })
     },
   },
   {

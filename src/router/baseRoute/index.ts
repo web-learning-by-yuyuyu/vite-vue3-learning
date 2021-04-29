@@ -28,7 +28,7 @@ export const baseRoutes:Array<AppRouteRecordRawT> = [
     }
   },
   {
-    path:"/:pathMatch(.*)*",
+    path:"/404",
     name:"404",
     component:pageNotFound,
     meta:{

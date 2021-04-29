@@ -27,7 +27,8 @@
       "@utils/*": ["./src/utils/*"],
       "@types/*": ["./src/types/*"],
       "@views/*": ["./src/views/*"],
-      "@mock/*": ["./src/mock/*"]
+      "@mock/*": ["./src/mock/*"],
+      "@layouts/*":["./src/layouts/*"]
     }
   },
   "exclude": ["node_modules", "dist"],

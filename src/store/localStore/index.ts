@@ -9,8 +9,8 @@
    set: Function
    get: Function
    remove: Function
-   getExpire?: Function
-   setExpire?: Function
+   getExpire: Function
+   setExpire: Function
  }
  
  export default (): UseStoreType => {

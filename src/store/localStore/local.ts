@@ -1,3 +1,4 @@
+import dayjs from "dayjs"
 class localStoreApi {
   set (key:string,val:string) {
     try {
@@ -20,17 +21,16 @@ class localStoreApi {
 
   // 有时效的 localStorage
   setExpire(key: string, value: string, expire: number): void {
-    const curTime = new Date().getTime()
-    return this.set(key, JSON.stringify({ val: value, time: curTime + expire }))
+    const time = dayjs().add(expire,"h").unix()
+    return this.set(key, JSON.stringify({ val: value, time}))
   }
 
   getExpire(key: string): string {
     const val: string = this.get(key)
-    const dataObj = JSON.parse(val)
-    if (new Date().getTime() - dataObj.time < 0) {
+    const dataObj = val ?JSON.parse(val):null
+    if (dataObj && dayjs().unix() - dataObj.time < 0) {
       return dataObj.val
     } else {
-      dataObj !== "" && this.remove(key) //获取成功 但是超时，删除该item
       return ''
     }
   }
