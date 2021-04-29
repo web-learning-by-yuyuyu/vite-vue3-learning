@@ -1,8 +1,8 @@
 /*
  *  生成vite插件
  */
-import vueJsx from '@vitejs/plugin-vue-jsx'
-import { minifyHtml,injectHtml } from 'vite-plugin-html'
+import vueJsx from "@vitejs/plugin-vue-jsx";
+import { minifyHtml, injectHtml } from "vite-plugin-html";
 
 import { viteMockServe } from "vite-plugin-mock";
 import styleImport from "vite-plugin-style-import";
@@ -46,14 +46,16 @@ export function setPlugins(command: string) {
   //ts路径
   plugins.push(tsconfigPaths());
   /* html */
-  plugins.push(minifyHtml())
-  plugins.push(injectHtml({
-    injectData:{
-      title:"vite2-by-i94xhn",
-      // injectScript: '<script src="https://unpkg.com/element-plus/lib/index.full.js"></script>',
-    }
-  }))
+  plugins.push(minifyHtml());
+  plugins.push(
+    injectHtml({
+      injectData: {
+        title: "vite2-by-i94xhn",
+        // injectScript: `<link rel="stylesheet" href="./tailwind.css">`,
+      },
+    })
+  );
   /* jsx */
-  plugins.push(vueJsx())
+  plugins.push(vueJsx());
   return plugins;
 }
