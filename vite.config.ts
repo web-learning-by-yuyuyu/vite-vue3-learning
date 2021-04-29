@@ -1,6 +1,5 @@
 import { setPlugins } from "./build/plugins/build.plugins";
 import { UserConfigExport, ConfigEnv } from 'vite';
-
 import { getAliases } from "vite-aliases";
 const aliases = getAliases({
   path: "src",
@@ -15,11 +14,6 @@ const aliases = getAliases({
 	ignoreDuplicates: false,
 
 });
-
-const path = require("path");
-const resolvePath = (src: string) => {
-  return path.resolve(__dirname, src);
-};
 export default async ({ command, mode }:ConfigEnv):Promise<UserConfigExport>=> {
   return {
     base: "./",
@@ -38,8 +32,6 @@ export default async ({ command, mode }:ConfigEnv):Promise<UserConfigExport>=> {
     build: {
       outDir: "dist", //打包文件名称
       assetsDir: "assets", //打包静态文件的存储地址
-      assetsInlineLimit: 4096, //静态资源小于此值的会使用base64编码引用，单位byte。设置为0禁用此项
-      cssCodeSplit: true, //css 拆分
       rollupOptions: {
         output: {
           manualChunks: {

@@ -311,8 +311,7 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
-"@tailwindcss/postcss7-compat@^2.1.2":
-  name tailwindcss
+"@tailwindcss/postcss7-compat@^2.1.2", "tailwindcss@npm:@tailwindcss/postcss7-compat":
   version "2.1.2"
   resolved "https://registry.nlark.com/@tailwindcss/postcss7-compat/download/@tailwindcss/postcss7-compat-2.1.2.tgz#4ae2a3a3c05622ee04307997b0f8bea5c8dbc2b6"
   integrity sha1-SuKjo8BWIu4EMHmXsPi+pcjbwrY=
@@ -5049,10 +5048,10 @@ vue@^3.0.5:
     "@vue/runtime-dom" "3.0.11"
     "@vue/shared" "3.0.11"
 
-vxe-table@^4.0.13:
-  version "4.0.13"
-  resolved "https://registry.yarnpkg.com/vxe-table/-/vxe-table-4.0.13.tgz#182bd71ed3ff3654e99ab3ae63d0d81d8c5dd3e2"
-  integrity sha512-1qw7pGEIjJZtzyjPn1RiCcCzKjBwMaHRyRqW7ZLAMg50gBX0am5p7ymY518JAbY0xU1ytup8OEFlVWJup5tTvQ==
+vxe-table@^4.0.15-beta.2:
+  version "4.0.15-beta.2"
+  resolved "https://registry.nlark.com/vxe-table/download/vxe-table-4.0.15-beta.2.tgz?cache=0&sync_timestamp=1619583048200&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvxe-table%2Fdownload%2Fvxe-table-4.0.15-beta.2.tgz#c349080d83a82d4117e544decaf0332bfb33808f"
+  integrity sha1-w0kIDYOoLUEX5UTeyvAzK/szgI8=
 
 which-boxed-primitive@^1.0.2:
   version "1.0.2"

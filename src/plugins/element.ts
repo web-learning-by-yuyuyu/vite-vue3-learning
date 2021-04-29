@@ -1,4 +1,5 @@
 import type {App} from "vue"
+import 'element-plus/packages/theme-chalk/src/base.scss'
 import {
   ElAlert,
   ElAside,

@@ -2,15 +2,12 @@
  *  生成vite插件
  */
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import WindiCSS from 'vite-plugin-windicss'
 import { minifyHtml,injectHtml } from 'vite-plugin-html'
 
 import { viteMockServe } from "vite-plugin-mock";
 import styleImport from "vite-plugin-style-import";
 import vue from "@vitejs/plugin-vue";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { htmlConf } from "./html.config";
-import { compressConf } from "../compress/compress.conf";
 export function setPlugins(command: string) {
   const plugins: any[] = [];
   plugins.push(vue());
@@ -48,8 +45,6 @@ export function setPlugins(command: string) {
   plugins.push(mock);
   //ts路径
   plugins.push(tsconfigPaths());
-  /* wind */
-  plugins.push(WindiCSS())
   /* html */
   plugins.push(minifyHtml())
   plugins.push(injectHtml({
