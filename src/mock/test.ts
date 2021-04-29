@@ -36,8 +36,7 @@ export default [
     url: "/api/user/info",
     method: "get",
     response: req => {
-      let {access_token} = req.headers;
-      return reutnData(access_token,{
+      return reutnData("1231232123",{
         username: "我不爱吃鱼鱼鱼鱼",
         permissions: ["admin", "edit"],
         email: Random.email(),

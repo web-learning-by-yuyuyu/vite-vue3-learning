@@ -26,7 +26,6 @@ export default async ({ command, mode }:ConfigEnv):Promise<UserConfigExport>=> {
     resolve: {
       alias: aliases,
     },
-    logLevel: "info", //log等级
     server: {
       port: 8008, //端口
       strictPort: false, //端口严格模式，为true时，当端口被占用，不会继续尝试下一个能用的端口
@@ -36,7 +35,6 @@ export default async ({ command, mode }:ConfigEnv):Promise<UserConfigExport>=> {
         overlay: true, //hot更新
       },
     },
-    css:{},
     build: {
       outDir: "dist", //打包文件名称
       assetsDir: "assets", //打包静态文件的存储地址
@@ -50,10 +48,6 @@ export default async ({ command, mode }:ConfigEnv):Promise<UserConfigExport>=> {
         },
       },
       chunkSizeWarningLimit: 600,
-    },
-    optimizeDeps: {
-      exclude: [], //打包排除的依赖
-      include: [], //通常此项不用更改
     },
     plugins: setPlugins(command),
   };
