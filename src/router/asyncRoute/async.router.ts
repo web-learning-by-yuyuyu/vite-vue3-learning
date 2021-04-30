@@ -4,12 +4,13 @@ const layout = () => import(/* webpackTrunkName: "layout" */ "@layouts/Layout");
 const index = () => import(/* webpackTrunkName: "index" */ "@views/index");
 const asyncRouter: AppRouteRecordRawT[] = [
   {
-    path: "/layout",
-    name: "layout",
-    redirect:"/layout/dashBord",
+    path: "/",
+    name: "index",
+    redirect:"/dashBord",
     component:layout,
     meta: {
-      title: "控制面板",
+      title: "首页",
+      permissions:["edit"]
     },
     children: [
       {
@@ -18,6 +19,7 @@ const asyncRouter: AppRouteRecordRawT[] = [
         component:index,
         meta: {
           title: "控制台",
+          permissions:["author"]
         },
       },
     ],

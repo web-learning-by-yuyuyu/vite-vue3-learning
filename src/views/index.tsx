@@ -1,9 +1,10 @@
 import { defineComponent, ref } from "vue";
-import { useUserStore } from "@store/user";
 const index = defineComponent({
   setup() {
-    const a = ref(0);
-    return () => <div>Home</div>
+    const has = ref("admin")
+    return () => <div>
+      <el-button vHas={has.value} type="primary">tttt</el-button>
+      </div>
   },
 });
 export default index;

@@ -4,9 +4,9 @@ import { useRouter } from "vue-router"
 //@ts-ignore
 import { StoreLocal } from "@types/config.types"
 
-const store =  useLocal()
-const router = useRouter()
 export const getToken = ():string=>{
+  const store =  useLocal()
+
  if (baseConfig.tokenExpireTIme && baseConfig.storeLocation === StoreLocal.LOCAL) {
   return store.getExpire(baseConfig.tokenName,baseConfig.tokenExpireTIme)
 } else {
@@ -14,6 +14,8 @@ export const getToken = ():string=>{
 }
 }
 export const setToken = (val:string):string=>{
+  const store =  useLocal()
+
   if (baseConfig.tokenExpireTIme && baseConfig.storeLocation === StoreLocal.LOCAL) {
     return store.setExpire(baseConfig.tokenName,val,baseConfig.tokenExpireTIme)
   } else {
@@ -21,6 +23,7 @@ export const setToken = (val:string):string=>{
   }
  }
 export const removeToken = ():void=>{
+  const store =  useLocal()
+
    store.remove(baseConfig.tokenName)
-   router.push({name:"login"})
  }

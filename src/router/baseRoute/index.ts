@@ -4,7 +4,7 @@ const page403 = () => import(/* webpackChunkName: "errorPage" */"@views/errorPag
 const login = () => import(/* webpackChunkName: "login" */"@views/login/index")
 export const baseRoutes:Array<AppRouteRecordRawT> = [
   {
-    path:"",
+    path:"/",
     name:"index",
     redirect:"/login",
     meta:{

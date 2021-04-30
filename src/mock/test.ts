@@ -38,7 +38,7 @@ export default [
     response: req => {
       return reutnData("1231232123",{
         username: "我不爱吃鱼鱼鱼鱼",
-        permissions: ["admin", "edit"],
+        permissions: ["admin"],
         email: Random.email(),
         avater: Random.image("64x64", "red", "yuyuyu"),
       })

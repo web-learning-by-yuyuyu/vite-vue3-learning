@@ -5,6 +5,10 @@ import { userInfo } from "./modules/types";
 import { userModel } from "@apis/user";
 import { addRoute } from "@config/router.permission";
 import asyncRouter from "@router/asyncRoute/async.router";
+import { ElNotification } from "element-plus";
+//@ts-ignore
+import { NoPermissionMsg } from "@types/config.types";
+
 // useStore could be anything like useUser, useCart
 const state: userInfo = {
   username: "",
@@ -22,7 +26,11 @@ export const useUserStore = defineStore({
       ...state,
     };
   },
-  getters() {},
+  getters: {
+    getRoles () {
+      return this.permissions
+    }
+  },
   actions: {
     logout() {
       removeToken();
@@ -47,7 +55,6 @@ export const useUserStore = defineStore({
         userModel
           .getUserInfo()
           .then(res => {
-            addRoute(asyncRouter as any)
             //@ts-ignore
             let { username, email, avater, permissions } = res;
             this.$patch({
@@ -56,6 +63,15 @@ export const useUserStore = defineStore({
               avater,
               permissions,
             });
+            if(!permissions.length) {
+              ElNotification({
+                title:"警告",
+                message:NoPermissionMsg.NOT,
+                type:"error"
+              })
+              removeToken()
+            }
+            addRoute(asyncRouter as any)
             resolve(res);
           })
           .catch(err => {

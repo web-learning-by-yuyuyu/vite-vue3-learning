@@ -9,11 +9,13 @@ import setupRouter, { router } from "@router/index";
 import "@config/router.permission";
 // import "tailwindcss/";
 import "@assets/css/style.css";
+import { setupDirective } from "./directive";
 const app = createApp(App);
 setupEle(app); //安装elemet plus
 setupStore(app); //安装store
 setupVxe(app);
 setupRouter(app);
+setupDirective(app)
 if (router.isReady()) {
   app.mount("#app");
 }

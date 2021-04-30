@@ -1,42 +1,59 @@
-import { getToken } from "@utils/access.token";
-import { RouteRecordName, RouteRecordRaw } from "vue-router";
+import { getToken, removeToken } from "@utils/access.token";
+import { RouteRecordRaw } from "vue-router";
 import { router } from "@router/index";
-import { createPinia } from "pinia";
 import { useUserStore } from "@store/user";
-export const addRoute = (
-  routers: RouteRecordRaw[],
-  parentName?: RouteRecordName
-) => {
-  routers.forEach(v => {
-    const children = v.children;
-    delete v.children;
-    parentName ? router.addRoute(parentName, v) : router.addRoute(v);
-    if (children && children.length) {
-      addRoute(children, v.name as RouteRecordName);
-    }
+import { useRouteStore } from "@store/routes";
+import { filterRoutes } from "@router/utils";
+import { AppRouteRecordRawT } from "@router/types";
+import { baseConfig } from "./base.config";
+import { ElNotification } from "element-plus";
+//@ts-ignore
+import { NoPermissionMsg } from "@types/config.types";
+export const addRoute = (routers: AppRouteRecordRawT[]) => {
+  const routeStore = useRouteStore();
+  const hasRoles = filterRoutes(routers);
+  routeStore.setAsyncRoutes(hasRoles);
+  if(hasRoles.length) {
+      hasRoles.forEach(v => {
+    router.addRoute(v as RouteRecordRaw);
   });
+  } else{
+    ElNotification({
+      title:"警告",
+      message:NoPermissionMsg.HAS,
+      type:"error"
+    })
+    removeToken()
+  }
+
 };
 router.onError(err => {
-  console.log(err);
+  console.error(err);
 });
+// })
 router.beforeEach(async (to, from, next) => {
   const store = useUserStore();
   const name = to.name as string;
-  const hasUserInfo = store.permissions.length;
-  const isNotFound = name ? !router.hasRoute(name) : true;
+  let hasUserInfo = store.permissions.length;
+  let isNotFound = name ? !router.hasRoute(name) : true;
+  let routerTitle = to?.meta?.title ?? "";
+  document.title = baseConfig.sysName + "-" + routerTitle;
   const hasToken = !!getToken();
-  if (hasToken) {
+  if (hasToken) { 
     if (hasUserInfo) {
-      name === "login" ? next({ name: "layout" }) : isNotFound?next("/404"):next();
+      name === "login"
+        ? next("/")
+        : isNotFound
+        ? next("/404")
+        : next();
     } else {
       await store.userInfo();
-      isNotFound?next("/404"):next({name})
+      next(to.fullPath);
     }
   } else {
-    if (to.name === "login") {
+    if (to.path === "/" || to.path === "/login") {
       next();
-    } else {
-      next({ name: "login" });
     }
+    next("/login");
   }
 });
