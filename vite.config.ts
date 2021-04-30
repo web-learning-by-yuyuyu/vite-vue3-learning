@@ -1,20 +1,24 @@
 import { setPlugins } from "./build/plugins/build.plugins";
-import { UserConfigExport, ConfigEnv } from 'vite';
+import { UserConfigExport, ConfigEnv } from "vite";
 import { getAliases } from "vite-aliases";
+import dynamicImportVars from "@rollup/plugin-dynamic-import-vars";
+
 const aliases = getAliases({
   path: "src",
   log_path: "src/logs",
   prefix: "@",
   deep: true,
   root: process.cwd(),
-	depth: 2,
-	addLeadingSlash: false,
-	allowLogging: false,
-	allowGlobalAlias: true,
-	ignoreDuplicates: false,
-
+  depth: 2,
+  addLeadingSlash: false,
+  allowLogging: false,
+  allowGlobalAlias: true,
+  ignoreDuplicates: false,
 });
-export default async ({ command, mode }:ConfigEnv):Promise<UserConfigExport>=> {
+export default async ({
+  command,
+  mode,
+}: ConfigEnv): Promise<UserConfigExport> => {
   return {
     base: "./",
     resolve: {
@@ -37,6 +41,7 @@ export default async ({ command, mode }:ConfigEnv):Promise<UserConfigExport>=> {
           manualChunks: {
             "element-plus": ["element-plus"],
           },
+          plugins: [dynamicImportVars({})],
         },
       },
       chunkSizeWarningLimit: 600,

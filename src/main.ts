@@ -10,12 +10,14 @@ import "@config/router.permission";
 // import "tailwindcss/";
 import "@assets/css/style.css";
 import { setupDirective } from "./directive";
+import { asyncComponent } from "./components";
 const app = createApp(App);
 setupEle(app); //安装elemet plus
 setupStore(app); //安装store
 setupVxe(app);
 setupRouter(app);
-setupDirective(app)
+setupDirective(app);
+asyncComponent(app);
 if (router.isReady()) {
   app.mount("#app");
 }

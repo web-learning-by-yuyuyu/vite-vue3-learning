@@ -10,6 +10,7 @@
     "lint": "eslint \"src/**/*.{js,vue}\""
   },
   "dependencies": {
+    "@rollup/plugin-dynamic-import-vars": "^1.1.1",
     "axios": "^0.20.0-0",
     "element-plus": "^1.0.2-beta.40",
     "install": "^0.13.0",
