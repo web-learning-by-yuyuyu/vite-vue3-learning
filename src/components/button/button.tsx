@@ -8,12 +8,12 @@ enum buttonType {
 
 const zButton = defineComponent({
   name:"zButton",
-  emits:["click"],
+  emits:["InCllick"],
   props:{
     type:{
       type:String,
       validator: (val:string)=>{
-        return ["success","warning","error","info",""].includes(val)
+        return ["success","warning","error","info"].includes(val)
       }
     },
     round:{
@@ -55,10 +55,11 @@ const zButton = defineComponent({
       buttonColor()
     }
     const click = (e) =>{
-      ctx.emit("click",e)
+      console.log(123123);
+      ctx.emit("InCllick",e)
     } 
       return ()=> (
-      <button onClick={withModifiers(click,["self"])} class={buttonClass.value} >
+      <button onClick={click} class={buttonClass.value} >
         <i v-show={loading} class='el-icon-loading'>&nbsp;</i>
         {inputInner()}
        </button>
