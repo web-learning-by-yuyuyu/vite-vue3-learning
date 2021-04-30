@@ -1,9 +1,21 @@
+import zButton from "@components/button/button";
 import { defineComponent, ref } from "vue";
+
 const index = defineComponent({
+  components:{
+    zButton
+  },
   setup() {
     const has = ref("admin")
-    return () => <div>
-      <el-button vHas={has.value} type="primary">tttt</el-button>
+    const clickButton = (e) =>{
+      console.log(e);
+    }
+    const type =ref("primary")
+    setTimeout(()=>{
+      type.value = "text"
+    },3000)
+    return () => <div class="pl-20">
+      <z-button round click={clickButton} type="error">按钮</z-button>
       </div>
   },
 });
