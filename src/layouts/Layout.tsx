@@ -1,3 +1,4 @@
+import { useSysStore } from "@store/sys";
 import { defineComponent } from "vue";
 
 const layout = defineComponent({
@@ -12,6 +13,7 @@ const layout = defineComponent({
             <z-slider></z-slider>
           </div>
           <div class="flex-1 main-content">
+            <z-tags class="hidden md4:flex"></z-tags>
             <router-view></router-view>
           </div>
         </div>

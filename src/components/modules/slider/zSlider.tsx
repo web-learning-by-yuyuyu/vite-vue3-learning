@@ -1,6 +1,6 @@
 import { useRouteStore } from "@store/routes";
 import { useSysStore } from "@store/sys";
-import { computed, defineComponent } from "@vue/runtime-core";
+import { computed, defineComponent } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { AppRouteRecordRawT } from "@router/types";
 import { title } from "node:process";
@@ -51,13 +51,13 @@ const zSlider = defineComponent({
     return () => (
       <div
         class={
-          "h-full max-w-xl delay-300 shadow-2xl	 ease-in-out transition-all" +
+          "h-full max-w-xl hidden mmd:block delay-300 shadow-2xl	 ease-in-out transition-all" +
           (isCollapse.value ? " w-20" : "  w-40 md:w-64")
         }
         style="box-shadow:5px 0 10px #ddd"
       >
         <el-menu
-          default-active={activePAth}
+          default-active={activePAth.value}
           onSelect={handleSelect}
           menu-trigger="click"
           backgroundColor="#1F2937 "

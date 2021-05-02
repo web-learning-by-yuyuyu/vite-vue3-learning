@@ -9,23 +9,27 @@ import { baseConfig } from "./base.config";
 import { ElNotification } from "element-plus";
 //@ts-ignore
 import { NoPermissionMsg } from "@types/config.types";
+import { useSysStore } from "@store/sys";
 export const addRoute = (routers: AppRouteRecordRawT[]) => {
   const routeStore = useRouteStore();
+  const sysStore = useSysStore();
   const hasRoles = filterRoutes(routers);
   routeStore.setAsyncRoutes(hasRoles);
-  if(hasRoles.length) {
-      hasRoles.forEach(v => {
-    router.addRoute(v as RouteRecordRaw);
-  });
-  } else{
+  if (hasRoles.length) {
+    /* 将首页添加进fixed */
+    //@ts-ignore
+    sysStore.fixedTags.push(hasRoles[0].children[0]);
+    hasRoles.forEach(v => {
+      router.addRoute(v as RouteRecordRaw);
+    });
+  } else {
     ElNotification({
-      title:"警告",
-      message:NoPermissionMsg.HAS,
-      type:"error"
-    })
-    removeToken()
+      title: "警告",
+      message: NoPermissionMsg.HAS,
+      type: "error",
+    });
+    removeToken();
   }
-
 };
 router.onError(err => {
   console.error(err);
@@ -39,13 +43,9 @@ router.beforeEach(async (to, from, next) => {
   let routerTitle = to?.meta?.title ?? "";
   document.title = baseConfig.sysName + "-" + routerTitle;
   const hasToken = !!getToken();
-  if (hasToken) { 
+  if (hasToken) {
     if (hasUserInfo) {
-      name === "login"
-        ? next("/")
-        : isNotFound
-        ? next("/404")
-        : next();
+      name === "login" ? next("/") : isNotFound ? next("/404") : next();
     } else {
       await store.userInfo();
       next(to.fullPath);
@@ -56,4 +56,11 @@ router.beforeEach(async (to, from, next) => {
     }
     next("/login");
   }
+});
+router.afterEach(to => {
+  const sysStore = useSysStore();
+  sysStore.$patch({
+    acitveName: to.name as string,
+  });
+  sysStore.addTages(to as AppRouteRecordRawT);
 });
