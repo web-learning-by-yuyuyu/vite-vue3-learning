@@ -22,3 +22,12 @@
       @apply px-2 py-1 ring-0 border-none rounded-none text-blue-500 border-0 bg-transparent
    }
 }
+.word-inline {
+   word-break: keep-all;
+}
+.setting-login {
+   width: 14px;
+}
+.height-slider {
+   height: calc(100vh - 42px);
+}

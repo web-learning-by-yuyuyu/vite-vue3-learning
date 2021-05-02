@@ -16,8 +16,8 @@ export const asyncComponent = function(app: App<Element>): void {
     Object.keys(modules).forEach(async (key: string) => {
       const viewSrc = components[key];
       const file = viewSrc.default;
-      const AsyncComponent = await defineAsyncComponent(modules[key]);
-      app.component(toComponetName(file.name), AsyncComponent);
+      const AsyncComponent = await defineAsyncComponent(modules[key]); // 异步组件
+      app.component(file.name, AsyncComponent);
     });
   });
 };

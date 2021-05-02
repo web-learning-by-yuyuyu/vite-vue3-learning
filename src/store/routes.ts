@@ -1,29 +1,31 @@
 import { defineStore } from "pinia";
-import { AppRouteRecordRawT } from "@router/types"
-
+import { AppRouteRecordRawT } from "@router/types";
+const asyncRouts: AppRouteRecordRawT[] = [];
+const constantRoutes: AppRouteRecordRawT[] = [];
+const menuRoutes: AppRouteRecordRawT[] = [];
 export const useRouteStore = defineStore({
-  id:"routes",
-  state () {
+  id: "routes",
+  state() {
     return {
-      asyncRouts:[],
-      constantRoutes:[],
-      menuRoutes:[]
-    }
+      asyncRouts,
+      constantRoutes,
+      menuRoutes,
+    };
   },
-  getters:{
-    menuList(){
-      return this.menuRoutes
+  getters: {
+    menuList() {
+      return this.menuRoutes;
     },
-    asyncRoutes (){
-      return this.asyncRouts
+    asyncRoutes() {
+      return this.asyncRouts;
     },
-    constantRoute (){
-      return this.constantRoutes
-    }
+    constantRoute() {
+      return this.constantRoutes;
+    },
   },
-  actions:{
-    setAsyncRoutes (hasRoles){
+  actions: {
+    setAsyncRoutes(hasRoles) {
       this.asyncRouts = hasRoles;
     },
-  }
-})
+  },
+});

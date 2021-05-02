@@ -12,8 +12,8 @@ export const baseConfig: BaseConfig = {
   successCode: [200, 0],
   tokenName: "access_token",
   duration: 3000,
-  tokenExpireTIme:72,//单位小时
-  routerPreDir:"/vite2-template/",//如果项目时放在网站的某一级目录下，一定要填写这个
-  sysName:"vite2-templat",
-  skipToken:false,
+  tokenExpireTIme: 72, //单位小时
+  routerPreDir: "/vite2-template/", //如果项目时放在网站的某一级目录下，一定要填写这个
+  sysName: "风雨见性admin",
+  skipToken: false,
 };

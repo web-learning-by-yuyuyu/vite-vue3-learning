@@ -6,23 +6,44 @@ const asyncRouter: AppRouteRecordRawT[] = [
   {
     path: "/",
     name: "index",
-    redirect:"/dashBord",
-    component:layout,
+    redirect: "/dashBord",
+    component: layout,
     meta: {
       title: "首页",
-      permissions:["edit"]
+      permissions: ["edit"],
     },
     children: [
       {
         path: "dashBord",
         name: "dashBord",
-        component:index,
+        component: index,
         meta: {
           title: "控制台",
-          permissions:["author"]
+          permissions: ["author"],
+        },
+      },
+    ],
+  },
+  {
+    path: "/test",
+    name: "test",
+    redirect: "/dashBord",
+    component: layout,
+    meta: {
+      title: "test",
+      permissions: ["edit"],
+    },
+    children: [
+      {
+        path: "test1",
+        name: "test1",
+        component: index,
+        meta: {
+          title: "test1",
+          permissions: ["author"],
         },
       },
     ],
   },
 ];
-export default asyncRouter
+export default asyncRouter;
