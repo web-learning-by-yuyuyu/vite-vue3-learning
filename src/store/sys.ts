@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { AppRouteRecordRawT } from "@router/types";
 import { router } from "@router/index";
+import { baseRoutes } from "@router/baseRoute";
 
 const tags: AppRouteRecordRawT[] = [];
 const fixedTags: AppRouteRecordRawT[] = [];
@@ -27,7 +28,11 @@ export const useSysStore = defineStore({
           /* 存在于固定tags中 */
           v.name === item.name
       );
-      !isExist && !isExistInFixed ? this.tags.push(item) : "";
+      const isExtInBase: boolean = baseRoutes.some(v => {
+        v.name === item.name;
+      });
+      const isLogin: boolean = item.name === "login";
+      !isExist && !isExistInFixed && !isLogin ? this.tags.push(item) : "";
     },
     removeItem(item) {
       /* 删除items，如果为当前的route，跳转首页 */
