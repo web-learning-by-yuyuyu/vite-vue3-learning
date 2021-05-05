@@ -7,7 +7,6 @@ import "@styles/element.scss";
 import { setupVxe } from "@plugins/vxe-table";
 import setupRouter, { router } from "@router/index";
 import "@config/router.permission";
-// import "tailwindcss/";
 import "@assets/css/style.css";
 import { setupDirective } from "./directive";
 import { asyncComponent } from "./components";

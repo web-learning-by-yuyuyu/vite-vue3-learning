@@ -1,6 +1,5 @@
 import { useUserStore } from "@store/user";
 import type { App } from "vue";
-import { bind } from "xe-utils";
 export const setipButtonPermission = (app:App) =>{
   app.directive("has",{
     mounted (el:HTMLElement,binding) {
