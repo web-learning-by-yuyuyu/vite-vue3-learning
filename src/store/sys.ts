@@ -28,9 +28,6 @@ export const useSysStore = defineStore({
           /* 存在于固定tags中 */
           v.name === item.name
       );
-      const isExtInBase: boolean = baseRoutes.some(v => {
-        v.name === item.name;
-      });
       const isLogin: boolean = item.name === "login";
       !isExist && !isExistInFixed && !isLogin ? this.tags.push(item) : "";
     },

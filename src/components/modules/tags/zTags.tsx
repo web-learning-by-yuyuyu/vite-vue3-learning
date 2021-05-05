@@ -12,8 +12,8 @@ const zTags = defineComponent({
   setup() {
     const sysStore = useSysStore();
     return () => (
-      <div class="w-full flex h-14 justify-center p-2 border-b-2">
-        <div class="flex-1 flex">
+      <div class="w-full flex h-12 justify-center px-2 py-1 border-b-2">
+        <div class="w-full overflow-y-scroll flex">
           {sysStore.fixedTags.map(item => {
             return <z-tagitem close-abled item={item} class="ml-2"></z-tagitem>;
           })}

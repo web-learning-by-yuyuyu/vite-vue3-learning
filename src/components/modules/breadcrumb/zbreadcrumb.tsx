@@ -1,17 +1,20 @@
 import { defineComponent, reactive, ref } from "@vue/runtime-core";
 import { useSysStore } from "@store/sys";
 import { useRoute } from "vue-router";
+import { computed } from "vue";
 const zBreadcrumb = defineComponent({
   name: "zBreadcrumb",
   setup(prop, ctx) {
-    const isExp = ref(false);
     const useStore = useSysStore();
+
+    const isExp = computed(() => {
+      return useStore.collapse;
+    });
     const route = useRoute();
     const exp = () => {
       /* 改变全局状态 */
-      isExp.value = !isExp.value;
       useStore.$patch({
-        collapse: isExp.value,
+        collapse: !isExp.value,
       });
     };
     return () => (
