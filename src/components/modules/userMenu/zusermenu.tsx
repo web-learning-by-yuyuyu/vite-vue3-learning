@@ -37,32 +37,32 @@ const zUserMenu = defineComponent({
     return () => (
       <div class="w-full flex space-x-10  justify-end items-center h-full">
         <div
-          class=" flex-1 hidden sm:flex justify-end space-x-10 cursor-pointer"
+          class=" flex-1 hidden sm:flex justify-end space-x-4 cursor-pointer"
           onClick={proxyClick}
         >
           <div
-            class=" text-gray-700 transform hover:scale-125 duration-100 border-b-2 border-solid border-opacity-50 border-red-400"
-            id="reload"
+            class=" text-gray-700 w-4 text-center transform hover:scale-125 duration-100 border-b-2 border-solid border-opacity-50 border-red-400"
+            
           >
-            重载
+           <i id="reload" class="el-icon-refresh"></i>
           </div>
           <div
             id="lang "
-            class="text-gray-700 transform hover:scale-125 duration-100 border-b-2 border-solid border-opacity-50 border-red-400"
+            class="text-gray-700 w-4 text-center transform hover:scale-125 duration-100 border-b-2 border-solid border-opacity-50 border-red-400"
           >
-            语言
+            L
           </div>
           <div
-            id="search"
-            class="text-gray-700 transform hover:scale-125 duration-100 border-b-2 border-solid border-opacity-50 border-red-400"
+           
+            class="text-gray-700 w-4 text-center transform hover:scale-125 duration-100 border-b-2 border-solid border-opacity-50 border-red-400"
           >
-            搜索
+            <i  id="search" class="el-icon-search"></i>
           </div>
           <div
             id="full"
-            class="text-gray-700 transform hover:scale-125 duration-100 border-b-2 border-solid border-opacity-50 border-red-400"
+            class="text-gray-700 w-4 text-center transform hover:scale-125 duration-100 border-b-2 border-solid border-opacity-50 border-red-400"
           >
-            全屏
+            F
           </div>
         </div>
         <div class="flex items-center pr-10">

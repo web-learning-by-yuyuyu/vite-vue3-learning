@@ -3,8 +3,8 @@ import { AppRouteRecordRawT } from "@router/types";
 import { router } from "@router/index";
 import { baseRoutes } from "@router/baseRoute";
 
-const tags: AppRouteRecordRawT[] = [];
-const fixedTags: AppRouteRecordRawT[] = [];
+const tags: AppRouteRecordRawT[] = [];/* 动态增加的tags */
+const fixedTags: AppRouteRecordRawT[] = [];/* 固定tags */
 export const useSysStore = defineStore({
   id: "sys",
   state() {
@@ -32,14 +32,30 @@ export const useSysStore = defineStore({
       !isExist && !isExistInFixed && !isLogin ? this.tags.push(item) : "";
     },
     removeItem(item) {
-      /* 删除items，如果为当前的route，跳转首页 */
+      /* 删除动态的tags */
       let index: number = this.tags.findIndex(v => v?.name === item.name);
-      item.name === this.acitveName
-        ? router.push({
-            name: "index",
-          })
-        : "";
       this.tags.splice(index, 1);
+      this.toRePath(index, item.name);
+    },
+    toRePath(index: number, name: string): void {
+      /* 删除固定项的处理 */
+      if (this.acitveName === name) {
+        if (this.tags.length) {
+          if (index > 0) {
+            router.push({
+              name: this.tags[index - 1].name,
+            });
+          } else {
+            router.push({
+              name: this.tags[0].name,
+            });
+          }
+        } else {
+          router.push({
+            name: "index",
+          });
+        }
+      }
     },
     refreshTags() {
       /* 清空所有的tags */

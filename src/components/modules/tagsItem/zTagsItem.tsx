@@ -49,7 +49,7 @@ const zTagItem = defineComponent({
             (prop.closeAbled ? " hidden" : "")
           }
         >
-          <i id="close" class="el-icon-circle-close text-gray-200"></i>
+          <i id="close" class={(route.name === prop.item.name?"text-gray-200 ":"text-black")+" el-icon-circle-close"}></i>
         </div>
       </div>
     );

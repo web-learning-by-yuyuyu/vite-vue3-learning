@@ -11,6 +11,8 @@ const zBreadcrumb = defineComponent({
       return useStore.collapse;
     });
     const route = useRoute();
+    console.log(route.matched);
+    
     const exp = () => {
       /* 改变全局状态 */
       useStore.$patch({

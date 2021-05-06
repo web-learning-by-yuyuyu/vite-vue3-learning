@@ -27,7 +27,7 @@ const zSlider = defineComponent({
             <el-submenu
               index={v.name}
               v-slots={{
-                title: () => <span>{v.meta.title}</span>,
+                title: () => <div><i class={v.meta.icon}></i><span>{v.meta.title}</span></div>,
               }}
             >
               {slot(v.children as AppRouteRecordRawT[])}
@@ -41,7 +41,7 @@ const zSlider = defineComponent({
                 title: () => <span>{v.meta.title}</span>,
               }}
             >
-              <i class="el-icon-menu"></i>
+              <i class={v.meta.icon}></i>
             </el-menu-item>
           );
         }
@@ -65,11 +65,12 @@ const zSlider = defineComponent({
             default-active={activePAth.value}
             onSelect={handleSelect}
             menu-trigger="click"
-            backgroundColor="#1F2937 "
+            backgroundColor="#1F2937"
             textColor="#D1D5DB"
             active-text-color="#F87171"
             collapse={isCollapse.value}
             class="w-full height-slider"
+            unique-opened={true}
           >
             {slot(routeStore.asyncRoutes).map(v => {
               return v;
