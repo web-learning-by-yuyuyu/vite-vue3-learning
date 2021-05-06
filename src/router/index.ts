@@ -2,7 +2,7 @@ import { baseConfig } from '@config/base.config';
 import type { App } from 'vue';
 //@ts-ignore
 import {createRouter, createWebHashHistory,RouteRecordRaw } from "vue-router";
-import { baseRoutes } from "./baseRoute/index";
+import { baseRoutes } from "./baseRoute";
 
 export const router = createRouter({
   history:createWebHashHistory(baseConfig.routerPreDir),
