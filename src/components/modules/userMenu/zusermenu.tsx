@@ -5,6 +5,7 @@ const zUserMenu = defineComponent({
   name: "zUsermenu",
   setup() {
     const store = useUserStore();
+    const isFull = ref(false)
     const handleClick = reactive({
       reload: () => {
         window.location.reload();
@@ -12,11 +13,13 @@ const zUserMenu = defineComponent({
       full: () => {
         // alternative standard method
         if (!document.fullscreenElement) {
+          isFull.value = true
           // current working methods
           if (document.documentElement.requestFullscreen) {
             document.documentElement.requestFullscreen();
           }
         } else {
+          isFull.value = false
           if (document.exitFullscreen) {
             document.exitFullscreen();
           }
@@ -44,25 +47,24 @@ const zUserMenu = defineComponent({
             class=" text-gray-700 w-4 text-center transform hover:scale-125 duration-100 border-b-2 border-solid border-opacity-50 border-red-400"
             
           >
-           <i id="reload" class="el-icon-refresh"></i>
+           <i id="reload" class="iconshuaxin iconfont text-xl"></i>
           </div>
           <div
             id="lang "
             class="text-gray-700 w-4 text-center transform hover:scale-125 duration-100 border-b-2 border-solid border-opacity-50 border-red-400"
           >
-            L
+            <i class="iconfont iconyuyanchuli___ text-xl"></i>
           </div>
           <div
            
             class="text-gray-700 w-4 text-center transform hover:scale-125 duration-100 border-b-2 border-solid border-opacity-50 border-red-400"
           >
-            <i  id="search" class="el-icon-search"></i>
+            <i  id="search" class="iconfont iconsousuo text-xl"></i>
           </div>
           <div
-            id="full"
             class="text-gray-700 w-4 text-center transform hover:scale-125 duration-100 border-b-2 border-solid border-opacity-50 border-red-400"
           >
-            F
+            <i id="full" class={isFull.value?"iconfont iconsuofangsuoxiao text-xl":"text-xl iconfont iconquanping"}></i>
           </div>
         </div>
         <div class="flex items-center pr-10">

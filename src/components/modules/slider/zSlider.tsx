@@ -72,9 +72,7 @@ const zSlider = defineComponent({
             class="w-full height-slider"
             unique-opened={true}
           >
-            {slot(routeStore.asyncRoutes).map(v => {
-              return v;
-            })}
+            {slot(routeStore.asyncRoutes)}
           </el-menu>
         </div>
         <div class="mmd:hidden">
@@ -95,9 +93,7 @@ const zSlider = defineComponent({
               active-text-color="#F87171"
               class=" w-full h-screen"
             >
-              {slot(routeStore.asyncRoutes).map(v => {
-                return v;
-              })}
+              {slot(routeStore.asyncRoutes)}
             </el-menu>
           </el-drawer>
         </div>

@@ -3,14 +3,19 @@
  */
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { minifyHtml, injectHtml } from "vite-plugin-html";
-
+import vueI18n from '@intlify/vite-plugin-vue-i18n'
 import { viteMockServe } from "vite-plugin-mock";
 import styleImport from "vite-plugin-style-import";
 import vue from "@vitejs/plugin-vue";
 import tsconfigPaths from "vite-tsconfig-paths";
+import path from 'path' 
 export function setPlugins(command: string) {
   const plugins: any[] = [];
   plugins.push(vue());
+  // 引入国际化
+  plugins.push(vueI18n({
+    include: path.resolve(__dirname, './src/locales/**')
+  }))
   //按需引入element
   const element = styleImport({
     libs: [

@@ -28,7 +28,8 @@
       "@types/*": ["./src/types/*"],
       "@views/*": ["./src/views/*"],
       "@mock/*": ["./src/mock/*"],
-      "@layouts/*":["./src/layouts/*"]
+      "@layouts/*":["./src/layouts/*"],
+      "@locales/*":["./src/locales/*"]
     }
   },
   "exclude": ["node_modules", "dist"],

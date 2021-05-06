@@ -1,0 +1,51 @@
+{
+  "id": "2528541",
+  "name": "vite-demo",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6834340",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "7556389",
+      "name": "全屏",
+      "font_class": "quanping",
+      "unicode": "e7ba",
+      "unicode_decimal": 59322
+    },
+    {
+      "icon_id": "10033367",
+      "name": "语言处理",
+      "font_class": "yuyanchuli___",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "15984117",
+      "name": "语言中文",
+      "font_class": "yuyanzhongwen",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "16942080",
+      "name": "刷新",
+      "font_class": "shuaxin",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "19644676",
+      "name": "缩放缩小",
+      "font_class": "suofangsuoxiao",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    }
+  ]
+}

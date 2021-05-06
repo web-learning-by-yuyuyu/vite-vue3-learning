@@ -5,14 +5,11 @@ import { computed } from "vue";
 const zBreadcrumb = defineComponent({
   name: "zBreadcrumb",
   setup(prop, ctx) {
-    const useStore = useSysStore();
-
+    const useStore = useSysStore();    
     const isExp = computed(() => {
       return useStore.collapse;
     });
-    const route = useRoute();
-    console.log(route.matched);
-    
+    const route = useRoute();    
     const exp = () => {
       /* 改变全局状态 */
       useStore.$patch({

@@ -5,6 +5,7 @@ interface ImportMetaEnv {
   MODE?:string,
   DEV?:string,
   PROD?:string,
+  hot?:boolean
 }
 
 declare global {

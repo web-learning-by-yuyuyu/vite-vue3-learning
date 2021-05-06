@@ -1,11 +1,12 @@
 import { UserLoginForm } from "@apis/models/user";
-import { defineComponent, reactive, ref,useContext } from "vue";
+import { defineComponent, reactive, ref,useContext,getCurrentInstance } from "vue";
 import { ElFormItemContext } from "element-plus/lib/el-form";
 import { useUserStore } from "@store/user";
 import { useRouter } from "vue-router";
 const login = defineComponent({
-  setup () {
-    const userStore = useUserStore()
+  setup (prop,ctx) {
+    const userStore = useUserStore()    
+    // const {appContext}=getCurrentInstance()
     const loginForm = ref<any>({} as ElFormItemContext)
     const loginFromRules = reactive({
       username:[
