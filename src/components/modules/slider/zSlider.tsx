@@ -12,11 +12,13 @@ const zSlider = defineComponent({
       return sysStore.collapse;
     });
     const route = useRoute();
+
     const router = useRouter();
     const activePAth = computed(() => {
       return route.name;
     });
     const routeStore = useRouteStore();
+
     const handleSelect = name => {
       router.push({ name });
     };
@@ -27,7 +29,12 @@ const zSlider = defineComponent({
             <el-submenu
               index={v.name}
               v-slots={{
-                title: () => <div><i class={v.meta.icon}></i><span>{v.meta.title}</span></div>,
+                title: () => (
+                  <div>
+                    <i class={v.meta.icon}></i>
+                    <span>{v.meta.title}</span>
+                  </div>
+                ),
               }}
             >
               {slot(v.children as AppRouteRecordRawT[])}
@@ -72,7 +79,7 @@ const zSlider = defineComponent({
             class="w-full height-slider"
             unique-opened={true}
           >
-            {slot(routeStore.asyncRoutes)}
+            {slot(routeStore.asyncRouts)}
           </el-menu>
         </div>
         <div class="mmd:hidden">
