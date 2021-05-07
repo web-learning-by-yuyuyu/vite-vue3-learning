@@ -1,5 +1,5 @@
 import { useSysStore } from "@store/sys";
-import { defineComponent } from "vue";
+import { defineComponent, onMounted } from "vue";
 
 const layout = defineComponent({
   setup() {
@@ -14,7 +14,7 @@ const layout = defineComponent({
           </div>
           <div class="flex-1 main-content">
             <z-tags class="hidden md4:flex"></z-tags>
-            <router-view></router-view>
+            <router-view class="p-2 flex-1 h-auto overflow-y-scroll"></router-view>
           </div>
         </div>
       </div>

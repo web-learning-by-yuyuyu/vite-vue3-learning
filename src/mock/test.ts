@@ -1,5 +1,7 @@
 import { MockMethod } from "vite-plugin-mock";
-import { Random } from "mockjs";
+import { Random,mock } from "mockjs";
+console.log();
+
 const successCode = 200;
 const hasNotToken = 401;
 const hasNotPermission = 403;
@@ -66,6 +68,31 @@ export default [
         name: "vben",
       },
     },
+  },
+  {
+    url:"/api/baseTable",
+    method:"get",
+    response:(req)=>{
+      let {pageSize,currentPage} = req.query;
+      return {
+        code:0,
+        messgae:"ok",
+        data:mock({
+          "total":400,
+          [`list|${pageSize}`]:[
+            {
+              "name":"@word",
+              "date":"@date",
+              "sex|1":[0,1,2],
+              "positon|1":["厨师长","学妹","loler","程序媛","程序猿"],
+              "ins":"@csentence",
+              "email":"@email",
+              "domain":"@domain"
+            }
+          ]
+        })
+      }
+    }
   },
   {
     url: "/api/text",

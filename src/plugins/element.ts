@@ -1,4 +1,5 @@
 import type {App} from "vue"
+import i18n from "./i18n"
 import 'element-plus/packages/theme-chalk/src/base.scss'
 import {
   ElAlert,
@@ -85,8 +86,8 @@ import {
   ElMessageBox,
   ElNotification,} from 'element-plus';
 import 'element-plus/packages/theme-chalk/src/base.scss';
-// @ts-expect-error
-import { ELE_SIZE } from "@types/ele.types";
+import ElementLocale from 'element-plus/lib/locale'
+
 const elComponents =[ElAlert,
   ElAside,
   ElAutocomplete,
@@ -172,6 +173,8 @@ const plugins = [
   ElMessageBox,
   ElNotification,
 ]
+ElementLocale.i18n(i18n.global.t)
+// ElementLocale.i18n((key, value) => i18n.global.t(key, value))
 export function setupEle(app:App<Element>) {
   const options = {
     // size:ELE_SIZE.mini
@@ -181,6 +184,6 @@ export function setupEle(app:App<Element>) {
     app.component(v.name,v)
   })
   plugins.forEach(p => {
-    app.use(p)
+    app.use(p,{i18n:i18n.global.t})
   })
 }

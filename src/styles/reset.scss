@@ -1,3 +1,7 @@
+@import 'vxe-table/styles/variable.scss';
+
+$vxe-primary-color: #34D399;
+
 html,
 body {
   margin: 0;
@@ -5,11 +9,19 @@ body {
   height: 100%;
   width: 100%;
   font-size: 14px;
+  div {
+    box-sizing: border-box;
+  }
+  .table-header {
+    background-color: #34D399;
+    color: #fff;
+  }
+  .login-wapper {
+    background-image: url("../assets/img/login_bg.png");
+  }
 }
 
-div {
-  box-sizing: border-box;
-}
+
 
 /**
  * 全局滚动条样式
@@ -33,6 +45,4 @@ div {
   background-color: rgba(144, 147, 153, 0.3);
   cursor: pointer;
 }
-.login-wapper {
-  background-image: url("../assets/img/login_bg.png");
-}
+@import 'vxe-table/styles/modules.scss';

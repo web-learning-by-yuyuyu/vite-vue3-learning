@@ -13,13 +13,13 @@ import { setupDirective } from "./directive";
 import { asyncComponent } from "./components";
 import { setupI18n } from "@plugins/i18n";
 const app = createApp(App);
+setupI18n(app);
 setupEle(app); //安装elemet plus
 setupStore(app); //安装store
 setupVxe(app);
 setupRouter(app);
 setupDirective(app);
 asyncComponent(app);
-setupI18n(app);
 if (router.isReady()) {
   app.mount("#app");
 }

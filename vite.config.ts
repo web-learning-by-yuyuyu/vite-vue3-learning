@@ -46,6 +46,12 @@ export default async ({
       },
       chunkSizeWarningLimit: 600,
     },
+        optimizeDeps: {
+      include: [
+        "element-plus/lib/locale/lang/zh-cn",
+        "element-plus/lib/locale/lang/en",
+      ],
+    },
     plugins: setPlugins(command),
   };
 };

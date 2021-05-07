@@ -14,6 +14,7 @@ export function setPlugins(command: string) {
   plugins.push(vue());
   // 引入国际化
   plugins.push(vueI18n({
+    compositionOnly:false,
     include: path.resolve(__dirname, './src/locales/**')
   }))
   //按需引入element

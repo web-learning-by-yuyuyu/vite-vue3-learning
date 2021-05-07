@@ -1,7 +1,10 @@
 import { AppRouteRecordRawT } from "@router/types";
 const layout = () => import(/* webpackTrunkName: "layout" */ "@layouts/Layout");
-
 const index = () => import(/* webpackTrunkName: "index" */ "@views/index");
+const i18n = ()=>import(/* webpackTrunkName:"i18n" */"@views/i18n/i18n");
+const base_table = ()=>import(/* webpackTrunkName:"baseTable" */"@views/table/baseTable");
+const gridTable = ()=>import(/* webpackTrunkName:"gridTable" */"@views/table/gridTable");
+
 const asyncRouter: AppRouteRecordRawT[] = [
   {
     path: "/",
@@ -28,53 +31,57 @@ const asyncRouter: AppRouteRecordRawT[] = [
     ],
   },
   {
-    path: "/test",
-    name: "test",
-    redirect: "/test/test1",
+    path: "/i18n",
+    name: "i18n",
+    redirect: "/i18n/index",
     component: layout,
     meta: {
-      title: "test",
+      title: "i18n",
       permissions: ["edit"],
       icon:"el-icon-folder-add"
 
     },
-    children: [
+    children:[
       {
-        path: "test1",
-        name: "test1",
-        component: index,
-        meta: {
-          title: "test1",
-          permissions: ["author"],
+        path:"index",
+        name:"i18nIndex",
+        component:i18n,
+        meta:{
+          title:"i18n",
           icon:"el-icon-folder-add"
-
-        },
-        children: [
-          {
-            path: "test3",
-            name: "test3",
-            component: index,
-            meta: {
-              title: "test3",
-              permissions: ["author"],
-              icon:"el-icon-folder-add"
-
-            },
-          },
-        ],
+        }
+      }
+    ]
+  },
+  {
+    path:"/table",
+    name:"table",
+    redirect:"/table/baseTable",
+    component:layout,
+    meta:{
+      title:"表格",
+      icon:"el-icon-folder-add"
+    },
+    children:[
+      {
+        path:"baseTable",
+        name:"baseTable",
+        component:base_table,
+        meta:{
+          title:"基础表格",
+          icon:"el-icon-folder-add"
+        }
       },
       {
-        path: "test2",
-        name: "test2",
-        component: index,
-        meta: {
-          title: "test2",
-          permissions: ["author"],
+        path:"gridTable",
+        name:"gridTable",
+        component:gridTable,
+        meta:{
+          title:"grid表格",
           icon:"el-icon-folder-add"
-
-        },
-      }
-    ],
-  },
+        }
+      },
+    ]
+  }
 ];
 export default asyncRouter;

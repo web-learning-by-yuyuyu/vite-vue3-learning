@@ -17,6 +17,7 @@ export const useSysStore = defineStore({
   },
   actions: {
     addTages(item: AppRouteRecordRawT) {
+      //@ts-ignore      
       /* 添加item，判断当前的路由是否存在，如果存在进入 */
       const isExist: boolean = this.tags.some(
         v =>
@@ -28,8 +29,8 @@ export const useSysStore = defineStore({
           /* 存在于固定tags中 */
           v.name === item.name
       );
-      const isLogin: boolean = item.name === "login";
-      !isExist && !isExistInFixed && !isLogin ? this.tags.push(item) : "";
+      const isRoot: boolean = ["404","403","login"].includes(item.name);
+      !isExist && !isExistInFixed && !isRoot ? this.tags.push(item) : "";
     },
     removeItem(item) {
       /* 删除动态的tags */
