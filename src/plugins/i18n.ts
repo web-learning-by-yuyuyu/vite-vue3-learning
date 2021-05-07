@@ -10,7 +10,7 @@ const i18n = createI18n({
   legacy: false,
   globalInjection: true,
 })
-changeLocaleEle(localStore.get("la")||"zh-cn")
+changeLocaleEle(localStore.get("la")||"zh")
 export function setupI18n (app:App<Element>) {
  app.use(i18n)
 }

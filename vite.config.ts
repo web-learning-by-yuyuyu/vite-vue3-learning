@@ -10,6 +10,7 @@ const aliases = getAliases({
   deep: true,
   root: process.cwd(),
   depth: 2,
+  //@ts-expect-error
   addLeadingSlash: false,
   allowLogging: false,
   allowGlobalAlias: true,
@@ -36,14 +37,14 @@ export default async ({
     build: {
       outDir: "dist", //打包文件名称
       assetsDir: "assets", //打包静态文件的存储地址
-      // rollupOptions: {
-      //   output: {
-      //     manualChunks: {
-      //       "element-plus": ["element-plus"],
-      //     },
-      //     plugins: [dynamicImportVars({})],
-      //   },
-      // },
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            "element-plus": ["element-plus"],
+          },
+          plugins: [dynamicImportVars()],
+        },
+      },
       chunkSizeWarningLimit: 1300,
     },
     optimizeDeps: {

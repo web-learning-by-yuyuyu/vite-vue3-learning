@@ -8,17 +8,20 @@ import { locale } from "element-plus";
 import enLocale from "element-plus/lib/locale/lang/en";
 import zhLocale from "element-plus/lib/locale/lang/zh-cn";
 //@ts-ignore
-import zh from "@locales/zh"
+import zh from "@locales/zh";
 //@ts-ignore
-import en from "@locales/en"
-export function changeLocaleEle(bind:string):void{
-  console.log(bind);
-  
+import en from "@locales/en";
+export function changeLocaleEle(bind: string): void {
+  if (bind === "zh") {
+    locale(zhLocale);
+  } else {
+    locale(enLocale);
+  }
 }
 
 export const localesConfigs = {
   zh: {
-   ...zh,
+    ...zh,
     ...zhVxeTable,
     ...zhLocale,
   },

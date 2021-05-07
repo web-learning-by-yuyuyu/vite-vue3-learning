@@ -16,7 +16,7 @@ const state: userInfo = {
   avater: "",
   permissions: [],
   token: getToken(),
-  info:{}
+  info: {},
 };
 export const useUserStore = defineStore({
   // unique id of the store across your application
@@ -26,11 +26,7 @@ export const useUserStore = defineStore({
       ...state,
     };
   },
-  getters: {
-    getRoles () {
-      return this.permissions
-    }
-  },
+  getters: {},
   actions: {
     logout() {
       removeToken();
@@ -63,15 +59,15 @@ export const useUserStore = defineStore({
               avater,
               permissions,
             });
-            if(!permissions.length) {
+            if (!permissions.length) {
               ElNotification({
-                title:"警告",
-                message:NoPermissionMsg.NOT,
-                type:"error"
-              })
-              removeToken()
+                title: "警告",
+                message: NoPermissionMsg.NOT,
+                type: "error",
+              });
+              removeToken();
             }
-            addRoute(asyncRouter as any)
+            addRoute(asyncRouter as any);
             resolve(res);
           })
           .catch(err => {

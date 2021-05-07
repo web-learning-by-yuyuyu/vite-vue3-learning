@@ -12,17 +12,6 @@ export const useRouteStore = defineStore({
       menuRoutes,
     };
   },
-  getters: {
-    menuList() {
-      return this.menuRoutes;
-    },
-    asyncRoutes() {
-      return this.asyncRouts;
-    },
-    constantRoute() {
-      return this.constantRoutes;
-    },
-  },
   actions: {
     setAsyncRoutes(hasRoles) {
       this.asyncRouts = hasRoles;
