@@ -12,13 +12,11 @@ function getComponents() {
 export const asyncComponent = function(app: App<Element>): void {
   const modules = getModules();
   const components = getComponents();
-  Object.keys(modules).forEach((v: string) => {
-    Object.keys(modules).forEach(async (key: string) => {
-      const viewSrc = components[key];
-      const file = viewSrc.default;
-      const AsyncComponent = await defineAsyncComponent(modules[key]); // 异步组件
-      app.component(file.name, AsyncComponent);
-    });
+  Object.keys(modules).forEach(async (v: string) => {
+    const viewSrc = components[v];
+    const file = viewSrc.default;
+    const AsyncComponent = await defineAsyncComponent(modules[v]); // 异步组件
+    app.component(file.name, AsyncComponent);
   });
 };
 

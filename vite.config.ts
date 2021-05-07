@@ -44,7 +44,7 @@ export default async ({
       //     plugins: [dynamicImportVars({})],
       //   },
       // },
-      chunkSizeWarningLimit: 600,
+      chunkSizeWarningLimit: 1300,
     },
     optimizeDeps: {
       include: [

@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
-    "lint": "eslint \"src/**/*.{js,vue}\""
+    "lint": "eslint \"src/**/*.{js,vue}\"",
+    "preview": "vite preview",
+    "preview:build": "npm run build && vite preview"
   },
   "dependencies": {
     "@rollup/plugin-dynamic-import-vars": "^1.1.1",
