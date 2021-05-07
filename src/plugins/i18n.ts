@@ -6,8 +6,9 @@ const localStore = new localStoreApi()
 const i18n = createI18n({
   locale: localStore.get("la")||"zh-cn",
   fallbackLocale: "en",
-  //@ts-ignore
   messages:localesConfigs,
+  legacy: false,
+  globalInjection: true,
 })
 changeLocaleEle(localStore.get("la")||"zh-cn")
 export function setupI18n (app:App<Element>) {

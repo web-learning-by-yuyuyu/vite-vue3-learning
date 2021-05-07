@@ -12,11 +12,8 @@ import zh from "@locales/zh"
 //@ts-ignore
 import en from "@locales/en"
 export function changeLocaleEle(bind:string):void{
-  if(bind === "en") {
-    locale(enLocale)
-  } else {
-    locale(zhLocale);
-  }
+  console.log(bind);
+  
 }
 
 export const localesConfigs = {

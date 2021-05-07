@@ -36,20 +36,22 @@ export default async ({
     build: {
       outDir: "dist", //打包文件名称
       assetsDir: "assets", //打包静态文件的存储地址
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            "element-plus": ["element-plus"],
-          },
-          plugins: [dynamicImportVars({})],
-        },
-      },
+      // rollupOptions: {
+      //   output: {
+      //     manualChunks: {
+      //       "element-plus": ["element-plus"],
+      //     },
+      //     plugins: [dynamicImportVars({})],
+      //   },
+      // },
       chunkSizeWarningLimit: 600,
     },
-        optimizeDeps: {
+    optimizeDeps: {
       include: [
         "element-plus/lib/locale/lang/zh-cn",
         "element-plus/lib/locale/lang/en",
+        "vxe-table/lib/locale/lang/zh-CN",
+        "vxe-table/lib/locale/lang/en-US",
       ],
     },
     plugins: setPlugins(command),
