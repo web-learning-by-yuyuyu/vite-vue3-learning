@@ -11,13 +11,7 @@ import zhLocale from "element-plus/lib/locale/lang/zh-cn";
 import zh from "@locales/zh";
 //@ts-ignore
 import en from "@locales/en";
-export function changeLocaleEle(bind: string): void {
-  if (bind === "zh") {
-    locale(zhLocale);
-  } else {
-    locale(enLocale);
-  }
-}
+export function changeLocaleEle(bind: string): void {}
 
 export const localesConfigs = {
   zh: {
