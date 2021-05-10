@@ -18,6 +18,7 @@ const i18n = defineComponent({
             [currentPage.value, "currentPage"],
             [pageSize.value, "pageSize"],
           ]}
+          
           total={400}
           layouts={[
             "PrevJump",
