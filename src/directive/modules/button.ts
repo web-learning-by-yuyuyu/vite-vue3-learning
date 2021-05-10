@@ -1,6 +1,6 @@
 import { useUserStore } from "@store/user";
-import type { App } from "vue";
-export const setipButtonPermission = (app:App) =>{
+import type { App,Directive } from "vue";
+export const setupButtonPermission:Directive = (app:App) =>{
   app.directive("has",{
     mounted (el:HTMLElement,binding) {
       let value = binding.value

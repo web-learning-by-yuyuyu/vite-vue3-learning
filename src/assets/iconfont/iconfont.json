@@ -6,6 +6,62 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "3904434",
+      "name": "表格",
+      "font_class": "biaoge",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "4419024",
+      "name": "控制台",
+      "font_class": "kongzhitai_",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "10343158",
+      "name": " Grid View",
+      "font_class": "GridView",
+      "unicode": "e752",
+      "unicode_decimal": 59218
+    },
+    {
+      "icon_id": "13303555",
+      "name": "i18n",
+      "font_class": "in",
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    },
+    {
+      "icon_id": "14445797",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e763",
+      "unicode_decimal": 59235
+    },
+    {
+      "icon_id": "18311481",
+      "name": "中英文 中文",
+      "font_class": "zhongyingwen2zhongwen",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "18365602",
+      "name": "中英文 英文02-01",
+      "font_class": "zhongyingwenyingwen02-01",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
+      "icon_id": "19041935",
+      "name": "3基础表格",
+      "font_class": "3jichubiaoge",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
       "icon_id": "813695",
       "name": "列表",
       "font_class": "liebiao",

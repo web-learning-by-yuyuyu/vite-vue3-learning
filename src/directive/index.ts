@@ -1,5 +1,5 @@
 import { App } from "@vue/runtime-core";
-
+import "@directive/loading/css/index.scss"
 /* 批量注册指令 */
 
 export const setupDirective = (app: App) => {

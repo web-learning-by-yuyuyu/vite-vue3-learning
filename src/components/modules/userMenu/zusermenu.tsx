@@ -67,6 +67,7 @@ const zUserMenu = defineComponent({
             class="text-gray-700 w-4 text-center transform hover:scale-125 duration-100 border-b-2 border-solid border-opacity-50 border-red-400"
           >
             <el-dropdown
+            size="mini"
               onCommand={handChangeLang}
               v-slots={{
                 dropdown: () => (
@@ -77,7 +78,10 @@ const zUserMenu = defineComponent({
                 ),
               }}
             >
-              <i class="iconfont iconyuyanchuli___ text-xl"></i>
+              {
+
+              }
+              <i class={"iconfont text-xl "+(locale.value ==="zh"?" iconzhongyingwen2zhongwen":" iconzhongyingwenyingwen02-01")}></i>
             </el-dropdown>
           </div>
           <div class="text-gray-700 w-4 text-center transform hover:scale-125 duration-100 border-b-2 border-solid border-opacity-50 border-red-400">

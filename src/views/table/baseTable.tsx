@@ -30,8 +30,8 @@ const baseTable = defineComponent({
     }
     return () =>(
       <div>
-      <div class="h-2/3">
-      <vxe-table header-row-class-name="table-header" border="full" align="center" auto-resize height="auto" ref={baseTableRef}>
+      <div class="h-2/3 relative">
+      <vxe-table v-loading={true} header-row-class-name="table-header" border="full" align="center" auto-resize height="auto" ref={baseTableRef}>
       <vxe-table-column type="seq" title="#"></vxe-table-column>
           <vxe-table-column field="name" title="姓名"></vxe-table-column>
           <vxe-table-column field="date" title="出生日期"></vxe-table-column>

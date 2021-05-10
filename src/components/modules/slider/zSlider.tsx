@@ -31,7 +31,7 @@ const zSlider = defineComponent({
               v-slots={{
                 title: () => (
                   <div>
-                    <i class={v.meta.icon}></i>
+                    <i class={v.meta.icon +" text-lg px-2"}></i>
                     <span>{v.meta.title}</span>
                   </div>
                 ),
@@ -48,7 +48,7 @@ const zSlider = defineComponent({
                 title: () => <span>{v.meta.title}</span>,
               }}
             >
-              <i class={v.meta.icon}></i>
+              <i class={v.meta.icon+" text-lg px-2"}></i>
             </el-menu-item>
           );
         }
@@ -100,7 +100,7 @@ const zSlider = defineComponent({
               active-text-color="#F87171"
               class=" w-full h-screen"
             >
-              {slot(routeStore.asyncRoutes)}
+              {slot(routeStore.asyncRouts)}
             </el-menu>
           </el-drawer>
         </div>

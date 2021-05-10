@@ -14,7 +14,7 @@ const asyncRouter: AppRouteRecordRawT[] = [
     meta: {
       title: "首页",
       permissions: ["edit"],
-      icon:"el-icon-folder-add"
+      icon:"iconfont iconshouye"
     },
     children: [
       {
@@ -24,8 +24,7 @@ const asyncRouter: AppRouteRecordRawT[] = [
         meta: {
           title: "控制台",
           permissions: ["author"],
-          icon:"el-icon-folder-add"
-
+          icon:"iconfont iconkongzhitai_"
         },
       },
     ],
@@ -38,7 +37,7 @@ const asyncRouter: AppRouteRecordRawT[] = [
     meta: {
       title: "i18n",
       permissions: ["edit"],
-      icon:"el-icon-folder-add"
+      icon:"iconfont iconicon-test"
 
     },
     children:[
@@ -48,7 +47,7 @@ const asyncRouter: AppRouteRecordRawT[] = [
         component:i18n,
         meta:{
           title:"i18n",
-          icon:"el-icon-folder-add"
+          icon:"iconfont iconin"
         }
       }
     ]
@@ -60,7 +59,7 @@ const asyncRouter: AppRouteRecordRawT[] = [
     component:layout,
     meta:{
       title:"表格",
-      icon:"el-icon-folder-add"
+      icon:"iconfont iconbiaoge"
     },
     children:[
       {
@@ -69,7 +68,7 @@ const asyncRouter: AppRouteRecordRawT[] = [
         component:base_table,
         meta:{
           title:"基础表格",
-          icon:"el-icon-folder-add"
+          icon:"iconfont icon3jichubiaoge"
         }
       },
       {
@@ -78,7 +77,7 @@ const asyncRouter: AppRouteRecordRawT[] = [
         component:gridTable,
         meta:{
           title:"grid表格",
-          icon:"el-icon-folder-add"
+          icon:"iconfont iconGridView"
         }
       },
     ]
