@@ -1,8 +1,9 @@
 //@ts-nocheck
 
 import { createVNode, h, reactive, ref, render, toRefs, Transition, VNode, vShow, withCtx, withDirectives } from 'vue'
-import { removeClass } from '@element-plus/utils/dom'
+import { removeClass } from 'element-plus/es/utils/dom'
 import type { ILoadingCreateComponentParams, ILoadingInstance } from './loading.type'
+import { divide } from 'xe-utils'
 
 export function createLoadingComponent({
   options,
@@ -78,17 +79,30 @@ export function createLoadingComponent({
       return componentSetupConfig
     },
     render() {
+      /* 生成圆点 */
       const spinner = h('svg', {
         class: 'circular',
         viewBox: '25 25 50 50',
       }, [
         h('circle', { class: 'path', cx: '50', cy: '50', r: '20', fill: 'none' }),
       ])
-
+      /* 自定义loading 部分 */
+      const line = h("div", {
+        class:"w-full flex justify-center"
+      }, [
+        h("div", { class: 'bar' }),
+        h("div", { class: 'bar' }),
+        h("div", { class: 'bar' }),
+        h("div", { class: 'bar' }),
+        h("div", { class: 'bar' }),
+        h("div", {class:'bar'}),
+        h("div", { class: 'bar' }),
+        h("div", {class:'bar'}),
+      ])
       const noSpinner = h('i', { class: this.spinner })
-
-      const spinnerText = h('p', { class: 'el-loading-text' }, [this.text])
-
+      /* 文字text */
+      const spinnerText = h('p', { class: 'el-loading-text inline-block py-4 loading-text' }, [this.text])
+      /* 渲染loading */
       return h(Transition, {
         name: 'el-loading-fade',
         onAfterLeave: this.handleAfterLeave,
@@ -104,9 +118,9 @@ export function createLoadingComponent({
           ],
         }, [
           h('div', {
-            class: 'el-loading-spinner',
+            class: 'w-full flex-col h-full relative overflow-hidden flex items-center justify-center',
           }, [
-            !this.spinner ? spinner : noSpinner,
+            !this.spinner ? line : noSpinner,
             this.text ? spinnerText : null,
           ]),
         ]),

@@ -1,10 +1,11 @@
 import tableModel from "@apis/table/table";
-import { defineComponent, onMounted, reactive, ref } from "vue";
+import { defineComponent, onMounted, reactive, ref, withModifiers } from "vue";
 import { VxeTableInstance } from "vxe-table";
 const baseTable = defineComponent({
   name: "baseTable",
   setup() {
     const baseTableRef = ref({} as VxeTableInstance);
+    const loading = ref(false);
     const pageConf = reactive({
       pageSize: 20,
       currentPage: 1,
@@ -14,6 +15,7 @@ const baseTable = defineComponent({
       getTableData();
     });
     const getTableData = () => {
+      loading.value = true;
       tableModel
         .base({
           pageSize: pageConf.pageSize,
@@ -22,6 +24,11 @@ const baseTable = defineComponent({
         .then(res => {
           baseTableRef.value.loadData(res.list);
           pageConf.total = res.total;
+          loading.value = false;
+        })
+        .catch(err => {
+          console.log(err);
+          loading.value = false;
         });
     };
     const searchMethod = e => {
@@ -36,7 +43,8 @@ const baseTable = defineComponent({
     return () => (
       <div>
         <vxe-table
-          v-loading={true}
+          v-loading={loading.value}
+          element-loading-text="拼命加载中"
           header-row-class-name="table-header"
           border="full"
           align="center"
@@ -79,6 +87,7 @@ const baseTable = defineComponent({
           ]}
           onPageChange={searchMethod}
           total={pageConf.total}
+          loading={loading.value}
           layouts={[
             "PrevJump",
             "PrevPage",

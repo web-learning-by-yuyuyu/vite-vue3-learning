@@ -1,10 +1,11 @@
+//@ts-nocheck
+
 import { nextTick } from 'vue'
 import { createLoadingComponent } from './createLoadingComponent'
 import type { ILoadingGlobalConfig, ILoadingInstance, ILoadingOptions } from './loading.type'
-import { addClass, getStyle, removeClass } from '@element-plus/utils/dom'
-import PopupManager from '@element-plus/utils/popup-manager'
-import isServer from '@element-plus/utils/isServer'
-
+import { addClass, getStyle, removeClass } from 'element-plus/es/utils/dom'
+import PopupManager from 'element-plus/es/utils/popup-manager'
+import isServer from 'element-plus/es/utils/isServer'
 const defaults: ILoadingOptions = {
   parent: null,
   background: '',
