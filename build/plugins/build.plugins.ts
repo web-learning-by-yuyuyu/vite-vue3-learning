@@ -56,7 +56,7 @@ export function setPlugins(command: string) {
   plugins.push(
     injectHtml({
       injectData: {
-        title: "vite2-by-i94xhn",
+        title: "小裁缝",
         // injectScript: `<link rel="stylesheet" href="./tailwind.css">`,
       },
     })

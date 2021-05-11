@@ -1,7 +1,7 @@
 import { defineComponent } from "vue";
 const App = defineComponent({
   name: "app",
-  setup(prop, ctx) {    
+  setup(prop, ctx) {
     return () => (
       <div>
         <router-view></router-view>

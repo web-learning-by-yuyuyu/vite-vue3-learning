@@ -87,7 +87,6 @@ const baseTable = defineComponent({
           ]}
           onPageChange={searchMethod}
           total={pageConf.total}
-          loading={loading.value}
           layouts={[
             "PrevJump",
             "PrevPage",
