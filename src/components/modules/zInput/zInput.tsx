@@ -19,15 +19,14 @@ const zInput = defineComponent({
   inheritAttrs: false,
   emits: ["update:value", "change", "input"],
   setup(prop, ctx) {
-    const _prop = toRefs(prop);
     const nativeValue = ref("");
     onMounted(() => {
-      nativeValue.value = _prop.modelValue.value;
+      nativeValue.value = prop.modelValue;
     });
     watch(
-      () => _prop.modelValue.value,
+      () => prop.modelValue,
       val => {
-        console.log(val);
+        nativeValue.value = val;
       }
     );
     watch(

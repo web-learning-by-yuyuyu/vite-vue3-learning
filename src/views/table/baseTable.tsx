@@ -17,7 +17,7 @@ const baseTable = defineComponent({
     const { $echarts } = _app;
     const loading = ref(false);
     const pageConf = reactive({
-      pageSize: 20,
+      pageSize: 400,
       currentPage: 1,
       total: 0,
     });
@@ -42,7 +42,9 @@ const baseTable = defineComponent({
         });
     };
     const inputSlot = {
-      default: ({ row }) => <zInput vModel={row.name}></zInput>,
+      default: ({ row }) => (
+        <el-input size="mini" v-model={row.name}></el-input>
+      ),
     };
     const searchMethod = e => {
       let { pageSize, currentPage, type } = e;
@@ -52,6 +54,13 @@ const baseTable = defineComponent({
       } else {
         getTableData();
       }
+    };
+    const handINput = row => {
+      console.log(123123);
+
+      const rows = Object.assign(row, { name: "1111" });
+      baseTableRef.value.reloadRow([rows]);
+      console.log(rows);
     };
     return () => (
       <div>
@@ -71,6 +80,23 @@ const baseTable = defineComponent({
           <vxe-table-column field="positon" title="岗位"></vxe-table-column>
           <vxe-table-column field="ins" title="简介"></vxe-table-column>
           <vxe-table-column field="email" title="邮箱"></vxe-table-column>
+          <vxe-table-column
+            field=""
+            title="test"
+            v-slots={{
+              default: ({ row }) => {
+                return (
+                  <z-button
+                    size="mini"
+                    type="error"
+                    onClick={handINput.bind(this, row)}
+                  >
+                    update
+                  </z-button>
+                );
+              },
+            }}
+          ></vxe-table-column>
           <vxe-table-column
             field=""
             title="input"
