@@ -13,6 +13,9 @@ import { setupDirective } from "./directive";
 import { asyncComponent } from "./components";
 import { setupI18n } from "@plugins/i18n";
 import { useVisibility } from "./hooks";
+import echarts from "@plugins/echarts";
+import { createHead } from "@vueuse/head"; // <--
+import "github-markdown-css/github-markdown.css";
 const app = createApp(App);
 setupI18n(app); //国际化
 setupEle(app); //安装elemet plus
@@ -22,6 +25,8 @@ setupRouter(app); //router
 setupDirective(app); //指令
 asyncComponent(app); //异步组件
 useVisibility.init(); //趣味功能
+app.use(echarts); //echarts
+app.use(createHead());
 if (router.isReady()) {
   app.mount("#app");
 }
