@@ -41,6 +41,9 @@ const baseTable = defineComponent({
           loading.value = false;
         });
     };
+    const inputSlot = {
+      default: ({ row }) => <zInput vModel={row.name}></zInput>,
+    };
     const searchMethod = e => {
       let { pageSize, currentPage, type } = e;
       if (type === "size") {
@@ -54,7 +57,6 @@ const baseTable = defineComponent({
       <div>
         <vxe-table
           v-loading={loading.value}
-          element-loading-text="拼命加载中"
           header-row-class-name="table-header"
           border="full"
           align="center"
@@ -69,6 +71,11 @@ const baseTable = defineComponent({
           <vxe-table-column field="positon" title="岗位"></vxe-table-column>
           <vxe-table-column field="ins" title="简介"></vxe-table-column>
           <vxe-table-column field="email" title="邮箱"></vxe-table-column>
+          <vxe-table-column
+            field=""
+            title="input"
+            v-Slots={inputSlot}
+          ></vxe-table-column>
           <vxe-table-column
             field="domain"
             title="域名"
