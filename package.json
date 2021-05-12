@@ -12,8 +12,10 @@
     "preview:build": "npm run build && vite preview"
   },
   "dependencies": {
+    "@antv/g2": "^4.1.16",
     "@rollup/plugin-dynamic-import-vars": "^1.1.1",
     "axios": "^0.20.0-0",
+    "echarts": "^5.1.1",
     "element-plus": "^1.0.2-beta.40",
     "install": "^0.13.0",
     "mockjs": "^1.1.0",
