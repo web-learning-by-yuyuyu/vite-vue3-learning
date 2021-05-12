@@ -12,7 +12,7 @@ const zInput = defineComponent({
   name: "zInput",
   props: {
     modelValue: {
-      type: [String, Number],
+      type: String,
       default: "",
     },
   },
