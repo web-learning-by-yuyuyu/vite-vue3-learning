@@ -9,7 +9,7 @@ const layout = defineComponent({
           <div class="w-auto">
             <z-slider></z-slider>
           </div>
-          <div class="flex-1 main-content">
+          <div class="flex-1 main-content h-screen">
             <z-header />
             <z-tags class="hidden md4:flex"></z-tags>
             <router-view class="p-2 flex-1 h-auto overflow-y-scroll relative"></router-view>
