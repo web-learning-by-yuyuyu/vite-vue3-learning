@@ -17,7 +17,7 @@ const baseTable = defineComponent({
     const { $echarts } = _app;
     const loading = ref(false);
     const pageConf = reactive({
-      pageSize: 400,
+      pageSize: 20,
       currentPage: 1,
       total: 0,
     });
@@ -56,11 +56,8 @@ const baseTable = defineComponent({
       }
     };
     const handINput = row => {
-      console.log(123123);
-
       const rows = Object.assign(row, { name: "1111" });
       baseTableRef.value.reloadRow([rows]);
-      console.log(rows);
     };
     return () => (
       <div>
@@ -86,13 +83,13 @@ const baseTable = defineComponent({
             v-slots={{
               default: ({ row }) => {
                 return (
-                  <z-button
+                  <el-button
                     size="mini"
-                    type="error"
+                    type="success"
                     onClick={handINput.bind(this, row)}
                   >
                     update
-                  </z-button>
+                  </el-button>
                 );
               },
             }}
