@@ -60,7 +60,7 @@ const baseTable = defineComponent({
       baseTableRef.value.reloadRow([rows]);
     };
     return () => (
-      <div>
+      <div v-watermask>
         <vxe-table
           v-loading={loading.value}
           header-row-class-name="table-header"

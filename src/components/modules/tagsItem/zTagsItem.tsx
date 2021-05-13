@@ -146,7 +146,7 @@ const zTagItem = defineComponent({
         onContextmenu={MenuClick}
         route={prop.item.name}
         class={
-          " w-auto  text-sm rounded-xl align-middle  border-solid	border-2 h-8  justify-center cursor-pointer transform transition duration-200  flex hover:bg-opacity-50 hover:text-gray-900 " +
+          " w-auto  text-base rounded-xl align-middle  border-solid	border-2 h-8  justify-center cursor-pointer transform transition duration-200  flex hover:bg-opacity-80 hover:text-gray-900 " +
           (route.name === prop.item.name
             ? "bg-blue-500 text-gray-200 border-blue-300"
             : "bg-white 	 text-black border-gray-200")
