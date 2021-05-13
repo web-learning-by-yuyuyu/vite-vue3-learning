@@ -11,7 +11,7 @@ const zUserMenu = defineComponent({
     const store = useUserStore();
     const isFull = ref(false);
     const localStore = new localStoreApi();
-    const handleClick = reactive({
+    const handleClick = {
       reload: () => {
         window.location.reload();
       },
@@ -30,7 +30,7 @@ const zUserMenu = defineComponent({
           }
         }
       },
-    });
+    };
     const { locale } = useI18n();
     const handleCommand = commad => {
       switch (commad) {

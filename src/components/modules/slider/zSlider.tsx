@@ -90,7 +90,7 @@ const zSlider = defineComponent({
             {slot(routeStore.asyncRouts)}
           </el-menu>
         </div>
-        <div class="mmd:hidden">
+        <div class="mmd:hidden h-screen">
           <el-drawer
             modelValue={isCollapse.value}
             direction="ltr"
@@ -99,15 +99,18 @@ const zSlider = defineComponent({
             size="60%"
             before-close={beforeClose}
           >
-            <el-menu
-              default-active={activePAth.value}
-              onSelect={handleSelect}
-              menu-trigger="click"
-              active-text-color="#F87171"
-              class=" w-full h-screen"
-            >
-              {slot(routeStore.asyncRouts)}
-            </el-menu>
+            <div>
+              <z-logo></z-logo>
+              <el-menu
+                default-active={activePAth.value}
+                onSelect={handleSelect}
+                menu-trigger="click"
+                active-text-color="#F87171"
+                class="w-full h-auto"
+              >
+                {slot(routeStore.asyncRouts)}
+              </el-menu>
+            </div>
           </el-drawer>
         </div>
       </>
