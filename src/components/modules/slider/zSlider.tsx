@@ -69,50 +69,52 @@ const zSlider = defineComponent({
     };
     return () => (
       <>
-        <div
-          class={
-            "h-screen max-w-xl hidden mmd:block delay-300 shadow-2xl	 ease-in-out transition-all" +
-            (isCollapse.value ? " w-20" : "  w-40 md:w-64")
-          }
-          style="box-shadow:5px 0 10px #ddd"
-        >
-          <z-logo></z-logo>
-          <el-menu
-            size="mini"
-            default-active={activePAth.value}
-            onSelect={handleSelect}
-            menu-trigger="click"
-            active-text-color="#F87171"
-            collapse={isCollapse.value}
-            class="w-full h-auto"
-            unique-opened={true}
+        <transition name="left" appear mode="out-in">
+          <div
+            class={
+              "h-screen max-w-xl hidden mmd:block delay-300 shadow-2xl	 ease-in-out transition-all" +
+              (isCollapse.value ? " w-20" : "  w-40 md:w-64")
+            }
+            style="box-shadow:5px 0 10px #ddd"
           >
-            {slot(routeStore.asyncRouts)}
-          </el-menu>
-        </div>
-        <div class="mmd:hidden h-screen">
-          <el-drawer
-            modelValue={isCollapse.value}
-            direction="ltr"
-            destroy-on-close
-            with-header={false}
-            size="60%"
-            before-close={beforeClose}
-          >
-            <div>
-              <z-logo></z-logo>
-              <el-menu
-                default-active={activePAth.value}
-                onSelect={handleSelect}
-                menu-trigger="click"
-                active-text-color="#F87171"
-                class="w-full h-auto"
-              >
-                {slot(routeStore.asyncRouts)}
-              </el-menu>
-            </div>
-          </el-drawer>
-        </div>
+            <z-logo></z-logo>
+            <el-menu
+              size="mini"
+              default-active={activePAth.value}
+              onSelect={handleSelect}
+              menu-trigger="click"
+              active-text-color="#F87171"
+              collapse={isCollapse.value}
+              class="w-full h-auto slider-bar"
+              unique-opened={true}
+            >
+              {slot(routeStore.asyncRouts)}
+            </el-menu>
+          </div>
+          <div class="mmd:hidden h-screen">
+            <el-drawer
+              modelValue={isCollapse.value}
+              direction="ltr"
+              destroy-on-close
+              with-header={false}
+              size="60%"
+              before-close={beforeClose}
+            >
+              <div>
+                <z-logo></z-logo>
+                <el-menu
+                  default-active={activePAth.value}
+                  onSelect={handleSelect}
+                  menu-trigger="click"
+                  active-text-color="#F87171"
+                  class="w-full h-auto slider-bar"
+                >
+                  {slot(routeStore.asyncRouts)}
+                </el-menu>
+              </div>
+            </el-drawer>
+          </div>
+        </transition>
       </>
     );
   },

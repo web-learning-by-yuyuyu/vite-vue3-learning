@@ -1,8 +1,10 @@
 import { useSysStore } from "@store/sys";
-import { defineComponent, onMounted } from "vue";
+import { defineComponent, onMounted, KeepAlive, Transition } from "vue";
 
 const layout = defineComponent({
+  components: { KeepAlive, Transition },
   setup() {
+    const sysStore = useSysStore();
     return () => (
       <div class=" w-screen flex flex-col">
         <div class="flex">
@@ -12,7 +14,21 @@ const layout = defineComponent({
           <div class="flex-1 main-content h-screen">
             <z-header />
             <z-tags class="hidden md4:flex"></z-tags>
-            <router-view class="p-2 flex-1 h-auto overflow-y-scroll relative"></router-view>
+            <router-view
+              class="p-2 flex-1 h-auto overflow-y-scroll relative"
+              v-slots={{
+                default: ({ Component, route }) => {
+                  const sys = useSysStore();
+                  return (
+                    <transition name="right" appear mode="out-in">
+                      <KeepAlive include={sys.keepRoutes}>
+                        {Component}
+                      </KeepAlive>
+                    </transition>
+                  );
+                },
+              }}
+            ></router-view>
           </div>
         </div>
       </div>

@@ -1,7 +1,5 @@
 import { AppRouteRecordRawT } from "@router/types";
-import { h } from "vue";
 const layout = () => import(/* webpackTrunkName: "layout" */ "@layouts/Layout");
-const index = () => import(/* webpackTrunkName: "index" */ "@views/index");
 const i18n = () => import(/* webpackTrunkName:"i18n" */ "@views/i18n/i18n");
 const base_table = () =>
   import(/* webpackTrunkName:"baseTable" */ "@views/table/baseTable");
@@ -72,6 +70,7 @@ const asyncRouter: AppRouteRecordRawT[] = [
         meta: {
           title: "基础表格",
           icon: "base-table",
+          keep: true,
         },
       },
       {
