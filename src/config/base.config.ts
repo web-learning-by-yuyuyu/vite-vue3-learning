@@ -1,5 +1,5 @@
 // @ts-expect-error
-import { BaseConfig, StoreLocal } from "@types/config.types";
+import { BaseConfig, StoreLocal, TransName } from "@types/config.types";
 const env: ImportMetaEnv = {
   VITE_APP_SERVICE_URL: import.meta.env.VITE_APP_SERVICE_URL,
 };
@@ -16,4 +16,5 @@ export const baseConfig: BaseConfig = {
   routerPreDir: "./", //如果项目时放在网站的某一级目录下，一定要填写这个
   sysName: "小裁缝",
   skipToken: false,
+  componetTrans: TransName.Right,
 };

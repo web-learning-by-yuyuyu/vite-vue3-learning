@@ -1,3 +1,4 @@
+import { baseConfig } from "@config/base.config";
 import { useSysStore } from "@store/sys";
 import { defineComponent, onMounted, KeepAlive, Transition } from "vue";
 
@@ -19,8 +20,9 @@ const layout = defineComponent({
               v-slots={{
                 default: ({ Component, route }) => {
                   const sys = useSysStore();
+                  const name = baseConfig.componetTrans || "fade";
                   return (
-                    <transition name="right" appear mode="out-in">
+                    <transition name={name} appear mode="out-in">
                       <KeepAlive include={sys.keepRoutes}>
                         {Component}
                       </KeepAlive>

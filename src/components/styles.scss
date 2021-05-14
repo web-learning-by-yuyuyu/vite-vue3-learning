@@ -115,3 +115,15 @@
 .right-leave-active {
   transition: all 0.4s;
 }
+.top-enter,
+.top-leave-to {
+  transform: translate3d(0, -100%, 0);
+}
+.top-leave,
+.top-enter-to {
+  transform: translate3d(0, 0, 0);
+}
+.top-enter-active,
+.top-leave-active {
+  transition: all 0.2s;
+}
