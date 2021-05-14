@@ -1,6 +1,6 @@
 import { baseConfig } from "@config/base.config";
 import { useSysStore } from "@store/sys";
-import { defineComponent, onMounted, KeepAlive, Transition } from "vue";
+import { defineComponent, KeepAlive, Transition} from "vue";
 
 const layout = defineComponent({
   components: { KeepAlive, Transition },
@@ -22,11 +22,11 @@ const layout = defineComponent({
                   const sys = useSysStore();
                   const name = baseConfig.componetTrans || "fade";
                   return (
-                    <transition name={name} appear mode="out-in">
-                      <KeepAlive include={sys.keepRoutes}>
-                        {Component}
+                    <Transition name={name} mode="out-in">
+                      <KeepAlive  include={sys.keepRoutes}>
+                        <Component is={route.name} key={route.name}></Component>
                       </KeepAlive>
-                    </transition>
+                    </Transition>
                   );
                 },
               }}

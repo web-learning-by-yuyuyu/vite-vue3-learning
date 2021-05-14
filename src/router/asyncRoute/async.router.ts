@@ -5,6 +5,7 @@ const base_table = () =>
   import(/* webpackTrunkName:"baseTable" */ "@views/table/baseTable");
 const gridTable = () =>
   import(/* webpackTrunkName:"gridTable" */ "@views/table/gridTable");
+//@ts-ignore
 import indexMd from "@views/index.md";
 
 const asyncRouter: AppRouteRecordRawT[] = [

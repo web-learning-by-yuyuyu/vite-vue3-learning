@@ -29,7 +29,6 @@ export const hasPermission = (route: AppRouteRecordRawT) => {
 };
 export const hasKeep = (route: AppRouteRecordRawT) => {
   const store = useSysStore();
-  console.log(route.meta?.keep);
   if (route.meta?.keep) {
     store.addKeep(route.name);
   }

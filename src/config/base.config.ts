@@ -1,11 +1,8 @@
 // @ts-expect-error
 import { BaseConfig, StoreLocal, TransName } from "@types/config.types";
-const env: ImportMetaEnv = {
-  VITE_APP_SERVICE_URL: import.meta.env.VITE_APP_SERVICE_URL,
-};
 export const baseConfig: BaseConfig = {
   /* 过期时间，仅当存储位置未local时生效 */
-  baseURL: env.VITE_APP_SERVICE_URL,
+  baseURL: import.meta.env.VITE_APP_SERVICE_URL,
   httpTimeOut: 10000,
   storeLocation: StoreLocal.LOCAL,
   errorCode: [401, 403],
@@ -16,5 +13,5 @@ export const baseConfig: BaseConfig = {
   routerPreDir: "./", //如果项目时放在网站的某一级目录下，一定要填写这个
   sysName: "小裁缝",
   skipToken: false,
-  componetTrans: TransName.Right,
+  componetTrans: TransName.Scale,
 };

@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { useSysStore } from "@store/sys";
 import { defineComponent, reactive, ref } from "@vue/runtime-core";
-import { render, Teleport, createVNode, withModifiers } from "vue";
+import { render, Teleport, createVNode, withModifiers, Transition } from "vue";
 import { useRoute, useRouter } from "vue-router";
 interface MenuItem {
   icon?: string;
@@ -10,6 +10,7 @@ interface MenuItem {
 }
 const zTagItem = defineComponent({
   name: "zTagitem",
+  components: { Transition },
   props: {
     item: {
       type: Object,

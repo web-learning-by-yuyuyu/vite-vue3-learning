@@ -1,4 +1,5 @@
 import { RouteRecordRaw } from "vue-router";
+
 interface RouteMeta {
   title?: string;
   icon?: string;

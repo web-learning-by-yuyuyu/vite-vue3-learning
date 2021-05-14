@@ -60,14 +60,14 @@ const baseTable = defineComponent({
       baseTableRef.value.reloadRow([rows]);
     };
     return () => (
-      <div v-watermask>
+      <div>
         <vxe-table
           v-loading={loading.value}
           header-row-class-name="table-header"
           border="full"
           align="center"
-          auto-resize
           height="400px"
+          autoResize={true}
           ref={baseTableRef}
         >
           <vxe-table-column type="seq" title="#"></vxe-table-column>
