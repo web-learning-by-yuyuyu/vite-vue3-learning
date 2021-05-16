@@ -119,3 +119,8 @@
 .top-leave-active {
   transition: all 0.4s;
 } */
+
+.right-border-shadow {
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 0px 10px #ddd;
+}

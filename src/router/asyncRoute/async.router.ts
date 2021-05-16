@@ -1,6 +1,10 @@
 import { AppRouteRecordRawT } from "@router/types";
 const layout = () => import(/* webpackTrunkName: "layout" */ "@layouts/Layout");
 const i18n = () => import(/* webpackTrunkName:"i18n" */ "@views/i18n/i18n");
+const echarst = () =>
+  import(/* webpackTrunkName:"i18n" */ "@views/charts/echarts");
+const antv = () => import(/* webpackTrunkName:"i18n" */ "@views/charts/antv");
+
 const base_table = () =>
   import(/* webpackTrunkName:"baseTable" */ "@views/table/baseTable");
 const gridTable = () =>
@@ -81,6 +85,36 @@ const asyncRouter: AppRouteRecordRawT[] = [
         meta: {
           title: "grid表格",
           icon: "grid",
+        },
+      },
+    ],
+  },
+  {
+    path: "/charts",
+    name: "charts",
+    redirect: "/charts/echarts",
+    component: layout,
+    meta: {
+      title: "ANT & ECHARTS",
+      icon: "arts-index",
+    },
+    children: [
+      {
+        path: "echarts",
+        name: "echarts",
+        component: echarst,
+        meta: {
+          title: "ECHARTS",
+          icon: "echarts",
+        },
+      },
+      {
+        path: "antv",
+        name: "antv",
+        component: antv,
+        meta: {
+          title: "ANT",
+          icon: "ant",
         },
       },
     ],
